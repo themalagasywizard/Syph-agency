@@ -1,5 +1,8 @@
 [build]
   # Static site: publish the repository root (where `index.html` lives).
+  # Note: your Netlify site currently has a UI-defined build command (`npm run build`)
+  # which will fail because there is no `package.json`. Clear it in the Netlify UI.
+  command = ""
   publish = "."
 
 [[headers]]
