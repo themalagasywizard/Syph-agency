@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syph Agency — We Build What's Next</title>
+  <meta name="description" content="Award-winning web app & iOS app agency for small businesses. We craft digital experiences that convert, scale, and dominate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-text">
+        <span class="preloader-letter">S</span>
+        <span class="preloader-letter">Y</span>
+        <span class="preloader-letter">P</span>
+        <span class="preloader-letter">H</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-progress" id="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-text">syph<span class="logo-dot">.</span></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#work" class="nav-link" data-magnetic>Work</a>
+        <a href="#services" class="nav-link" data-magnetic>Services</a>
+        <a href="#process" class="nav-link" data-magnetic>Process</a>
+        <a href="#testimonials" class="nav-link" data-magnetic>Proof</a>
+        <a href="#contact" class="nav-cta" data-magnetic>
+          <span>Start a Project</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="#work" class="mobile-link">Work</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#process" class="mobile-link">Process</a>
+      <a href="#testimonials" class="mobile-link">Proof</a>
+      <a href="#contact" class="mobile-link accent">Start a Project</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge hero-anim">
+        <span class="badge-dot"></span>
+        Available for Q1 2026 projects
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line hero-anim"><span>We build</span></span>
+        <span class="title-line hero-anim">
+          <span class="rotating-wrapper">
+            <span class="rotating-text" id="rotating-text">
+              <span class="rotating-word active">revenue machines</span>
+              <span class="rotating-word">growth engines</span>
+              <span class="rotating-word">unfair advantages</span>
+              <span class="rotating-word">apps people love</span>
+              <span class="rotating-word">digital empires</span>
+            </span>
+          </span>
+        </span>
+        <span class="title-line hero-anim"><span>for <em class="gradient-text">small businesses.</em></span></span>
+      </h1>
+      <p class="hero-sub hero-anim">
+        Custom web apps and iOS apps — designed to convert, built to scale,<br class="hide-mobile">
+        and polished to a level your competitors can't touch.
+      </p>
+      <div class="hero-ctas hero-anim">
+        <a href="#contact" class="btn btn-primary" data-magnetic>
+          <span class="btn-text">Let's Build</span>
+          <span class="btn-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <a href="#work" class="btn btn-ghost" data-magnetic>
+          <span class="btn-text">See Our Work</span>
+        </a>
+      </div>
+      <div class="hero-stats hero-anim">
+        <div class="stat">
+          <span class="stat-number" data-count="47">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Apps Shipped</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="96">0</span><span class="stat-plus">%</span>
+          <span class="stat-label">Client Retention</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="4.9">0</span>
+          <span class="stat-label">Avg. Rating</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator hero-anim">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <section class="marquee-section">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="marquee-item">Web Applications</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">iOS Development</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">UI/UX Design</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">Product Strategy</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">Brand Identity</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">Web Applications</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">iOS Development</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">UI/UX Design</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">Product Strategy</span>
+        <span class="marquee-separator">&#x2726;</span>
+        <span class="marquee-item">Brand Identity</span>
+        <span class="marquee-separator">&#x2726;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  <section class="section work-section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Selected Work</span>
+        <h2 class="section-title reveal-up">
+          Projects that speak<br><span class="gradient-text">louder than pitches.</span>
+        </h2>
+      </div>
+      <div class="work-grid">
+        <!-- Project 1: Librarix — Featured iOS App -->
+        <div class="flip-card reveal-up">
+          <div class="flip-card-inner" id="flip-librarix">
+            <!-- FRONT -->
+            <div class="flip-card-front">
+              <div class="work-card">
+                <div class="work-card-image">
+                  <div class="work-card-placeholder" style="background: linear-gradient(145deg, #0f2027 0%, #203a43 40%, #2c5364 100%);">
+                    <div class="device-showcase phone-showcase">
+                      <div class="device-phone">
+                        <div class="device-phone-notch"></div>
+                        <div class="device-phone-screen">
+                          <img src="assets/librarix-screenshot.png" alt="Librarix - Book Discovery App" loading="lazy">
+                        </div>
+                      </div>
+                      <div class="device-glow phone-glow"></div>
+                    </div>
+                  </div>
+                  <div class="work-card-hover-overlay">
+                    <h3 class="hover-title">Librarix</h3>
+                    <p class="hover-subtitle">iOS Book Library App</p>
+                    <button class="details-btn" data-flip="flip-librarix">
+                      <span>Details</span>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="work-card-info">
+                  <div class="work-card-tags">
+                    <span class="tag">iOS App</span>
+                    <span class="tag">Swift</span>
+                    <span class="tag">Books</span>
+                  </div>
+                  <h3 class="work-card-title">Librarix</h3>
+                  <p class="work-card-desc">Personal library manager with ISBN scanning, curated collections, cloud sync, and dark mode. 5-star rated on the App Store.</p>
+                </div>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="flip-card-back">
+              <div class="flip-back-content" style="background: linear-gradient(145deg, #0f2027 0%, #203a43 40%, #2c5364 100%);">
+                <button class="flip-close-btn" data-flip="flip-librarix" aria-label="Close">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <div class="flip-back-header">
+                  <div class="flip-back-tags">
+                    <span class="tag">iOS App</span>
+                    <span class="tag">Swift</span>
+                    <span class="tag">SwiftUI</span>
+                    <span class="tag">CloudKit</span>
+                  </div>
+                  <h3 class="flip-back-title">Librarix</h3>
+                  <div class="flip-back-rating">
+                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span class="rating-text">5.0 on the App Store</span>
+                  </div>
+                </div>
+                <div class="flip-back-body">
+                  <p>A personal library manager built for readers who are serious about their collections. Scan any ISBN with your camera, organize books into custom collections, and discover curated weekly picks.</p>
+                  <ul class="flip-feature-list">
+                    <li>ISBN barcode scanning for instant cataloging</li>
+                    <li>Curated weekly picks &amp; themed collections</li>
+                    <li>Cloud sync across all Apple devices</li>
+                    <li>Reading progress tracking &amp; notes</li>
+                    <li>Dark mode with high-contrast UI</li>
+                  </ul>
+                </div>
+                <div class="flip-back-footer">
+                  <a href="https://apps.apple.com/es/app/librarix/id6758272285" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-magnetic>
+                    <span class="btn-text">View on App Store</span>
+                    <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Apeiron — Featured Web App -->
+        <div class="flip-card reveal-up">
+          <div class="flip-card-inner" id="flip-apeiron">
+            <!-- FRONT -->
+            <div class="flip-card-front">
+              <div class="work-card">
+                <div class="work-card-image">
+                  <div class="work-card-placeholder" style="background: linear-gradient(145deg, #0a0a0a 0%, #12101a 40%, #1a1333 100%);">
+                    <div class="device-showcase browser-showcase">
+                      <div class="device-browser">
+                        <div class="device-browser-bar">
+                          <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                          </div>
+                          <div class="browser-url">
+                            <span>apeiron-oss.netlify.app</span>
+                          </div>
+                        </div>
+                        <div class="device-browser-screen">
+                          <img src="assets/apeiron-screenshot.png" alt="Apeiron - AI Chat Interface" loading="lazy">
+                        </div>
+                      </div>
+                      <div class="device-glow browser-glow"></div>
+                    </div>
+                  </div>
+                  <div class="work-card-hover-overlay">
+                    <h3 class="hover-title">Apeiron</h3>
+                    <p class="hover-subtitle">AI Chat Platform</p>
+                    <button class="details-btn" data-flip="flip-apeiron">
+                      <span>Details</span>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="work-card-info">
+                  <div class="work-card-tags">
+                    <span class="tag">Web App</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Chat Interface</span>
+                  </div>
+                  <h3 class="work-card-title">Apeiron</h3>
+                  <p class="work-card-desc">AI-powered chat platform with multi-model support, project organization, and a refined conversational interface built for clarity.</p>
+                </div>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="flip-card-back">
+              <div class="flip-back-content" style="background: linear-gradient(145deg, #0a0a0a 0%, #12101a 40%, #1a1333 100%);">
+                <button class="flip-close-btn" data-flip="flip-apeiron" aria-label="Close">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <div class="flip-back-header">
+                  <div class="flip-back-tags">
+                    <span class="tag">Web App</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">React</span>
+                    <span class="tag">API Integration</span>
+                  </div>
+                  <h3 class="flip-back-title">Apeiron</h3>
+                  <div class="flip-back-rating">
+                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span class="rating-text">Multi-model AI platform</span>
+                  </div>
+                </div>
+                <div class="flip-back-body">
+                  <p>A refined AI chat platform with multi-model support, project-based organization, and a conversational interface built for power users who need clarity and speed.</p>
+                  <ul class="flip-feature-list">
+                    <li>Multi-model support (Claude, GPT, and more)</li>
+                    <li>Project &amp; conversation organization</li>
+                    <li>Real-time streaming responses</li>
+                    <li>Comparison mode across models</li>
+                    <li>Minimal, distraction-free dark UI</li>
+                  </ul>
+                </div>
+                <div class="flip-back-footer">
+                  <a href="https://apeiron-oss.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-magnetic>
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Showcase wide card -->
+        <div class="work-card work-card-wide reveal-up" data-tilt>
+          <div class="work-card-image">
+            <div class="work-card-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);">
+              <div class="placeholder-ui">
+                <div class="ph-nav" style="background:rgba(255,255,255,0.12);"></div>
+                <div class="ph-split">
+                  <div class="ph-split-left">
+                    <div style="font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:4px;">Your Project</div>
+                    <div class="ph-line ph-line-lg" style="background:rgba(255,255,255,0.25);"></div>
+                    <div class="ph-line ph-line-md" style="background:rgba(255,255,255,0.15);"></div>
+                    <div class="ph-line ph-line-sm" style="background:rgba(255,255,255,0.1);"></div>
+                    <div class="ph-button" style="background:rgba(255,255,255,0.3);margin-top:auto;"></div>
+                  </div>
+                  <div class="ph-split-right">
+                    <div class="ph-img-block ph-img-tall" style="background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;">
+                      <div style="font-size:20px;color:rgba(255,255,255,0.2);">?</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work-card-overlay">
+              <span class="view-project" data-magnetic>Let's Talk
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-tags">
+              <span class="tag">Web App</span>
+              <span class="tag">iOS</span>
+              <span class="tag">Yours</span>
+            </div>
+            <h3 class="work-card-title">Your Next Project</h3>
+            <p class="work-card-desc">We have a slot open. If you're a small business ready to level up with a custom app — this spot has your name on it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">What We Do</span>
+        <h2 class="section-title reveal-up">
+          Two things. Done<br><span class="gradient-text">unreasonably well.</span>
+        </h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-up" data-tilt>
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="2" y="6" width="36" height="28" rx="4" stroke="url(#grad1)" stroke-width="2"/>
+              <line x1="2" y1="12" x2="38" y2="12" stroke="url(#grad1)" stroke-width="2"/>
+              <circle cx="7" cy="9" r="1.5" fill="#667eea"/>
+              <circle cx="12" cy="9" r="1.5" fill="#764ba2"/>
+              <circle cx="17" cy="9" r="1.5" fill="#f093fb"/>
+              <defs><linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#667eea"/><stop offset="1" stop-color="#764ba2"/></linearGradient></defs>
+            </svg>
+          </div>
+          <h3 class="service-title">Web Applications</h3>
+          <p class="service-desc">Full-stack web apps that load fast, scale effortlessly, and convert visitors into customers. From SaaS dashboards to e-commerce platforms.</p>
+          <ul class="service-list">
+            <li>React / Next.js / Vue</li>
+            <li>Node.js / Python / Go</li>
+            <li>PostgreSQL / MongoDB</li>
+            <li>AWS / Vercel / Railway</li>
+          </ul>
+          <div class="service-bottom">
+            <span class="service-number">01</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal-up" data-tilt>
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="10" y="2" width="20" height="36" rx="5" stroke="url(#grad2)" stroke-width="2"/>
+              <line x1="16" y1="6" x2="24" y2="6" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="33" r="2" stroke="url(#grad2)" stroke-width="1.5"/>
+              <defs><linearGradient id="grad2" x1="10" y1="2" x2="30" y2="38"><stop stop-color="#f093fb"/><stop offset="1" stop-color="#f5576c"/></linearGradient></defs>
+            </svg>
+          </div>
+          <h3 class="service-title">iOS Applications</h3>
+          <p class="service-desc">Native Swift apps that feel like they belong on the device. Buttery animations, offline-first, and the kind of polish that earns 5-star reviews.</p>
+          <ul class="service-list">
+            <li>Swift / SwiftUI</li>
+            <li>Core Data / CloudKit</li>
+            <li>Push Notifications</li>
+            <li>App Store Optimization</li>
+          </ul>
+          <div class="service-bottom">
+            <span class="service-number">02</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">How We Work</span>
+        <h2 class="section-title reveal-up">
+          From idea to App Store<br><span class="gradient-text">in four moves.</span>
+        </h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-line">
+          <div class="process-line-fill" id="process-line-fill"></div>
+        </div>
+        <div class="process-step reveal-up">
+          <div class="process-dot"></div>
+          <div class="process-content">
+            <span class="process-number">01</span>
+            <h3 class="process-title">Discovery</h3>
+            <p class="process-desc">We dissect your business, your users, your competitors. No fluff workshops — real strategic thinking that shapes everything downstream.</p>
+            <span class="process-duration">Week 1</span>
+          </div>
+        </div>
+        <div class="process-step reveal-up">
+          <div class="process-dot"></div>
+          <div class="process-content">
+            <span class="process-number">02</span>
+            <h3 class="process-title">Design</h3>
+            <p class="process-desc">Wireframes, prototypes, UI design. You'll interact with your app before a single line of code is written. We iterate until it feels inevitable.</p>
+            <span class="process-duration">Weeks 2–3</span>
+          </div>
+        </div>
+        <div class="process-step reveal-up">
+          <div class="process-dot"></div>
+          <div class="process-content">
+            <span class="process-number">03</span>
+            <h3 class="process-title">Build</h3>
+            <p class="process-desc">Clean architecture. Rigorous testing. Weekly demos so you always know exactly where things stand. No surprises, no bloat.</p>
+            <span class="process-duration">Weeks 4–8</span>
+          </div>
+        </div>
+        <div class="process-step reveal-up">
+          <div class="process-dot"></div>
+          <div class="process-content">
+            <span class="process-number">04</span>
+            <h3 class="process-title">Launch & Scale</h3>
+            <p class="process-desc">Deployment, monitoring, App Store submission. Then we stay on to optimize, iterate, and grow alongside your business.</p>
+            <span class="process-duration">Week 9+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / Testimonials -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Client Love</span>
+        <h2 class="section-title reveal-up">
+          Don't take our word for it.<br><span class="gradient-text">Take theirs.</span>
+        </h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal-up">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="testimonial-quote">"They built our app in weeks, not months. The attention to detail was insane — every animation, every micro-interaction felt considered."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Maria Reyes</span>
+              <span class="testimonial-role">Founder, Local Bakery Chain</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-up">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="testimonial-quote">"I've worked with 4 agencies before. Syph is the first one that actually felt like a partner, not a vendor. Night and day difference."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">TL</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Thomas Laurent</span>
+              <span class="testimonial-role">CEO, Boutique Hotel Group</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-up">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="testimonial-quote">"Our iOS app went from concept to the App Store in 6 weeks. 5-star rating from day one. These people know Swift like nobody else."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AK</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Anya Kapoor</span>
+              <span class="testimonial-role">Owner, Fitness Studio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section tech-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag reveal-up">Our Stack</span>
+        <h2 class="section-title reveal-up">
+          Built with the tools<br><span class="gradient-text">that actually matter.</span>
+        </h2>
+      </div>
+      <div class="tech-orbit reveal-up">
+        <div class="tech-logos">
+          <div class="tech-logo" data-magnetic><span>React</span></div>
+          <div class="tech-logo" data-magnetic><span>Next.js</span></div>
+          <div class="tech-logo" data-magnetic><span>Swift</span></div>
+          <div class="tech-logo" data-magnetic><span>Node.js</span></div>
+          <div class="tech-logo" data-magnetic><span>TypeScript</span></div>
+          <div class="tech-logo" data-magnetic><span>PostgreSQL</span></div>
+          <div class="tech-logo" data-magnetic><span>Figma</span></div>
+          <div class="tech-logo" data-magnetic><span>AWS</span></div>
+          <div class="tech-logo" data-magnetic><span>Python</span></div>
+          <div class="tech-logo" data-magnetic><span>Firebase</span></div>
+          <div class="tech-logo" data-magnetic><span>SwiftUI</span></div>
+          <div class="tech-logo" data-magnetic><span>Vercel</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section" id="contact">
+    <div class="cta-bg">
+      <div class="gradient-orb orb-cta-1"></div>
+      <div class="gradient-orb orb-cta-2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title reveal-up">
+          <span>Ready to build</span>
+          <span><em class="gradient-text">something legendary?</em></span>
+        </h2>
+        <p class="cta-sub reveal-up">Tell us about your project. We'll tell you exactly how we'd build it — free, no strings attached.</p>
+        <div class="cta-actions reveal-up">
+          <a href="mailto:hello@syphagency.com" class="btn btn-primary btn-lg" data-magnetic>
+            <span class="btn-text">hello@syphagency.com</span>
+            <span class="btn-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+        <div class="cta-guarantee reveal-up">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 1L12.39 3.86L16.18 3.63L16.41 7.42L19.27 9.81L17.5 13.17L18.73 16.73L15.17 17.96L12.78 20.82L10 19.05L7.22 20.82L4.83 17.96L1.27 16.73L2.5 13.17L0.73 9.81L3.59 7.42L3.82 3.63L7.61 3.86L10 1Z" fill="url(#grad3)" fill-opacity="0.15" stroke="url(#grad3)" stroke-width="1"/>
+            <path d="M7 10.5L9 12.5L13.5 8" stroke="url(#grad3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="grad3" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#667eea"/><stop offset="1" stop-color="#f093fb"/></linearGradient></defs>
+          </svg>
+          <span>Free consultation &bull; No commitment &bull; Response within 24h</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text">syph<span class="logo-dot">.</span></span>
+          <p class="footer-tagline">Building what's next for small businesses.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <a href="#work" class="footer-link">Work</a>
+          <a href="#services" class="footer-link">Services</a>
+          <a href="#process" class="footer-link">Process</a>
+          <a href="#testimonials" class="footer-link">Testimonials</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect</h4>
+          <a href="mailto:hello@syphagency.com" class="footer-link">Email</a>
+          <a href="#" class="footer-link">Twitter / X</a>
+          <a href="#" class="footer-link">LinkedIn</a>
+          <a href="#" class="footer-link">Dribbble</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Syph Agency. All rights reserved.</span>
+        <span class="footer-credit">Crafted with obsession.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & Lenis from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
