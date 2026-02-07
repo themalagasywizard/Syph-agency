@@ -5,63 +5,74 @@
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Smooth Scrolling with Lenis ---
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches || window.innerWidth <= 768;
 
-  function raf(time) {
-    lenis.raf(time);
+  // --- Smooth Scrolling with Lenis (desktop only) ---
+  let lenis = null;
+  if (!isTouch && !prefersReducedMotion) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
 
-  // Connect Lenis to GSAP ScrollTrigger
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
+    // Connect Lenis to GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
 
   // --- Preloader ---
   const preloader = document.getElementById('preloader');
   const preloaderLetters = document.querySelectorAll('.preloader-letter');
   const preloaderProgress = document.getElementById('preloader-progress');
 
-  const preloaderTl = gsap.timeline({
-    onComplete: () => {
-      gsap.to(preloader, {
-        yPercent: -100,
-        duration: 0.8,
-        ease: 'power4.inOut',
-        onComplete: () => {
-          preloader.style.display = 'none';
-          initPageAnimations();
-        }
-      });
-    }
-  });
+  if (prefersReducedMotion) {
+    preloader.style.display = 'none';
+    initPageAnimations(true);
+  } else {
+    const preloaderTl = gsap.timeline({
+      onComplete: () => {
+        gsap.to(preloader, {
+          yPercent: -100,
+          duration: 0.8,
+          ease: 'power4.inOut',
+          onComplete: () => {
+            preloader.style.display = 'none';
+            initPageAnimations();
+          }
+        });
+      }
+    });
 
-  preloaderTl
-    .to(preloaderLetters, {
-      y: 0,
-      opacity: 1,
-      duration: 0.6,
-      stagger: 0.08,
-      ease: 'power3.out',
-    })
-    .to(preloaderProgress, {
-      width: '100%',
-      duration: 1.2,
-      ease: 'power2.inOut',
-    }, '-=0.2')
-    .to(preloaderLetters, {
-      y: -20,
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.04,
-      ease: 'power3.in',
-    }, '+=0.3');
+    preloaderTl
+      .to(preloaderLetters, {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power3.out',
+      })
+      .to(preloaderProgress, {
+        width: '100%',
+        duration: 1.2,
+        ease: 'power2.inOut',
+      }, '-=0.2')
+      .to(preloaderLetters, {
+        y: -20,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.04,
+        ease: 'power3.in',
+      }, '+=0.3');
+  }
 
   // --- Custom Cursor ---
   const cursor = document.getElementById('cursor');
@@ -70,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let cursorX = 0, cursorY = 0;
   let followerX = 0, followerY = 0;
 
-  if (window.innerWidth > 768) {
+  if (!isTouch) {
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
@@ -107,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Magnetic Buttons ---
   const magneticElements = document.querySelectorAll('[data-magnetic]');
-  if (window.innerWidth > 768) {
+  if (!isTouch) {
     magneticElements.forEach(el => {
       el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
@@ -166,13 +177,32 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
-        lenis.scrollTo(target, { offset: -80 });
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -80 });
+        } else {
+          const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        }
       }
     });
   });
 
   // --- Page Animations (after preloader) ---
-  function initPageAnimations() {
+  function initPageAnimations(isReduced = false) {
+    if (isReduced) {
+      document.querySelectorAll('.hero-anim').forEach(el => {
+        el.style.opacity = 1;
+      });
+      document.querySelectorAll('.title-line.hero-anim > span').forEach(el => {
+        el.style.transform = 'translateY(0)';
+      });
+      document.querySelectorAll('.reveal-up').forEach(el => {
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+      });
+      return;
+    }
+
     // Hero entrance
     const heroTl = gsap.timeline();
     heroTl
@@ -311,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Parallax ---
   function initParallax() {
+    if (isTouch) return;
     gsap.to('.orb-1', {
       y: -100,
       scrollTrigger: {
