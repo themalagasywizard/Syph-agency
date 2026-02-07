@@ -1006,6 +1006,21 @@ img {
   min-height: unset;
 }
 
+.grapper-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  overflow: hidden;
+}
+
+.grapper-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
 .ph-dashboard {
   flex: 1;
   display: flex;
