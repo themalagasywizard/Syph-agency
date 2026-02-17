@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic AI for SMBs — Syph Agency</title>
+  <meta name="description" content="Transform your small business with custom AI agents. Automate operations, cut costs, and scale faster.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ============================================
+       AGENTIC AI PAGE — Additional Styles
+       ============================================ */
+    
+    :root {
+      --agent-accent-1: #00d4ff;
+      --agent-accent-2: #7c3aed;
+      --agent-accent-3: #10b981;
+      --agent-gradient: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #10b981 100%);
+    }
+
+    /* Page Entry Animation */
+    .agent-page {
+      opacity: 0;
+      animation: pageEnter 1.2s var(--ease-out-expo) forwards;
+    }
+
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section */
+    .agent-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+
+    .agent-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .agent-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+
+    .agent-orb-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--agent-accent-1);
+      top: -200px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .agent-orb-2 {
+      width: 500px;
+      height: 500px;
+      background: var(--agent-accent-2);
+      bottom: -150px;
+      right: -100px;
+      animation-delay: -7s;
+    }
+
+    .agent-orb-3 {
+      width: 400px;
+      height: 400px;
+      background: var(--agent-accent-3);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -14s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    /* Neural Network Canvas */
+    .neural-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .agent-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .agent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+    }
+
+    .agent-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--agent-accent-1);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .agent-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 8vw, 80px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .agent-hero-title .highlight {
+      background: var(--agent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .agent-hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .agent-hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .agent-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out-expo);
+      cursor: none;
+    }
+
+    .agent-btn-primary {
+      background: var(--agent-gradient);
+      color: #fff;
+      border: none;
+    }
+
+    .agent-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+    }
+
+    .agent-btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .agent-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Problem Section */
+    .agent-problem {
+      padding: 120px 24px;
+      position: relative;
+    }
+
+    .agent-section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--agent-accent-1);
+      margin-bottom: 16px;
+    }
+
+    .agent-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .problem-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--agent-accent-2);
+      box-shadow: 0 30px 60px rgba(124, 58, 237, 0.15);
+    }
+
+    .problem-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+
+    .problem-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .problem-desc {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Solution Section */
+    .agent-solution {
+      padding: 120px 24px;
+      background: var(--bg-elevated);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-visual {
+      position: relative;
+      max-width: 1000px;
+      margin: 60px auto 0;
+      aspect-ratio: 16/9;
+      background: var(--bg-card);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .agent-dashboard {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+    }
+
+    .dashboard-sidebar {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar-item {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sidebar-item.active {
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--agent-accent-1);
+    }
+
+    .sidebar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .dashboard-main {
+      padding: 24px;
+      position: relative;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .dashboard-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .dashboard-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--agent-accent-3);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--agent-accent-3);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .agent-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .agent-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+
+    .agent-card:hover {
+      border-color: var(--agent-accent-1);
+    }
+
+    .agent-card-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--agent-gradient);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .agent-card-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .agent-card-status {
+      font-size: 12px;
+      color: var(--agent-accent-3);
+    }
+
+    .agent-card-tasks {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .task-check {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--agent-accent-3);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--agent-accent-3);
+      font-size: 10px;
+    }
+
+    /* Features Section */
+    .agent-features {
+      padding: 120px 24px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 60px auto 0;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--agent-gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-number {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 24px;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .feature-metrics {
+      display: flex;
+      gap: 24px;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--agent-accent-1);
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Process Section */
+    .agent-process {
+      padding: 120px 24px;
+      background: var(--bg-elevated);
+    }
+
+    .process-timeline {
+      max-width: 800px;
+      margin: 60px auto 0;
+      position: relative;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--agent-accent-1), var(--agent-accent-2), var(--agent-accent-3));
+    }
+
+    .process-step {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--bg);
+      border: 2px solid var(--agent-accent-1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--agent-accent-1);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .step-content {
+      padding-top: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .agent-cta {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-glow {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .agent-dashboard {
+        grid-template-columns: 1fr;
+      }
+      
+      .dashboard-sidebar {
+        display: none;
+      }
+      
+      .agent-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-timeline::before {
+        left: 12px;
+      }
+      
+      .step-number {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body class="agent-page">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">syph<span class="logo-dot">.</span></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#work" class="nav-link">Work</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="agentic-ai.html" class="nav-link active">Agentic AI</a>
+        <a href="index.html#pricing" class="nav-link">Pricing</a>
+        <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="nav-cta">
+          <span>Start a Project</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="agent-hero">
+    <div class="agent-hero-bg">
+      <div class="agent-orb agent-orb-1"></div>
+      <div class="agent-orb agent-orb-2"></div>
+      <div class="agent-orb agent-orb-3"></div>
+      <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+    </div>
+    <div class="agent-hero-content">
+      <div class="agent-badge">
+        <span class="agent-badge-dot"></span>
+        AI That Works While You Sleep
+      </div>
+      <h1 class="agent-hero-title">
+        Autonomous Agents for<br>
+        <span class="highlight">Small & Medium Business</span>
+      </h1>
+      <p class="agent-hero-sub">
+        Custom AI agents that handle operations, automate workflows, and scale your business — 
+        deployed in weeks, not months. No PhD required.
+      </p>
+      <div class="agent-hero-ctas">
+        <a href="https://tally.so/r/n98Q5X" class="agent-btn agent-btn-primary">
+          Book a Pilot
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14L14 2M14 2H4M14 2V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#solution" class="agent-btn agent-btn-secondary">
+          See How It Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="agent-problem" id="problem">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <span class="agent-section-label">The Challenge</span>
+      <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 700; margin-bottom: 60px;">
+        Running a SMB Means Wearing Every Hat
+      </h2>
+    </div>
+    <div class="agent-problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">⏱️</div>
+        <h3 class="problem-title">Time Drains</h3>
+        <p class="problem-desc">Manual data entry, scheduling, and reporting consume 12+ hours every week — time that could drive growth.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <h3 class="problem-title">Expensive Overhead</h3>
+        <p class="problem-desc">Hiring specialized staff for every function is unsustainable. You need more output without more headcount.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔄</div>
+        <h3 class="problem-title">Repetitive Chaos</h3>
+        <p class="problem-desc">Same tasks, different day. No scale, no leverage — just endless operational friction grinding you down.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🧠</div>
+        <h3 class="problem-title">Knowledge Bottlenecks</h3>
+        <p class="problem-desc">Critical knowledge lives in one person's head. When they leave or get sick, operations stall.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📈</div>
+        <h3 class="problem-title">Limited Visibility</h3>
+        <p class="problem-desc">No real-time insights. You're flying blind, making decisions based on outdated spreadsheets.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🚫</div>
+        <h3 class="problem-title">Tech Overwhelm</h3>
+        <p class="problem-desc">Enterprise tools are too complex. You need solutions that fit your size, budget, and team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="agent-solution" id="solution">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <span class="agent-section-label">The Solution</span>
+      <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 700;">
+        Your Digital Workforce Never Sleeps
+      </h2>
+    </div>
+    
+    <div class="solution-visual">
+      <div class="agent-dashboard">
+        <div class="dashboard-sidebar">
+          <div class="sidebar-item active">
+            <span class="sidebar-dot"></span>
+            Operations
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-dot"></span>
+            Sales & CRM
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-dot"></span>
+            Customer Support
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-dot"></span>
+            Finance
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-dot"></span>
+            Marketing
+          </div>
+        </div>
+        <div class="dashboard-main">
+          <div class="dashboard-header">
+            <span class="dashboard-title">Active AI Agents</span>
+            <div class="dashboard-status">
+              <span class="status-dot"></span>
+              All Systems Operational
+            </div>
+          </div>
+          <div class="agent-cards">
+            <div class="agent-card">
+              <div class="agent-card-icon">📧</div>
+              <div class="agent-card-name">Inbox Agent</div>
+              <div class="agent-card-status">Processing 47 emails</div>
+              <div class="agent-card-tasks">
+                <div class="task-item"><span class="task-check">✓</span> Categorized: 32</div>
+                <div class="task-item"><span class="task-check">✓</span> Replied: 8</div>
+                <div class="task-item"><span class="task-check">◐</span> Escalated: 7</div>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-card-icon">📊</div>
+              <div class="agent-card-name">Analytics Agent</div>
+              <div class="agent-card-status">Generating report...</div>
+              <div class="agent-card-tasks">
+                <div class="task-item"><span class="task-check">✓</span> Sales: $47.2K</div>
+                <div class="task-item"><span class="task-check">✓</span> Pipeline: +23%</div>
+                <div class="task-item"><span class="task-check">◐</span> Forecast: Running</div>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-card-icon">📅</div>
+              <div class="agent-card-name">Scheduler Agent</div>
+              <div class="agent-card-status">3 meetings booked</div>
+              <div class="agent-card-tasks">
+                <div class="task-item"><span class="task-check">✓</span> Confirmed: 3</div>
+                <div class="task-item"><span class="task-check">✓</span> Pending: 5</div>
+                <div class="task-item"><span class="task-check">◐</span> Follow-up: 2</div>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-card-icon">💬</div>
+              <div class="agent-card-name">Support Agent</div>
+              <div class="agent-card-status">12 conversations</div>
+              <div class="agent-card-tasks">
+                <div class="task-item"><span class="task-check">✓</span> Resolved: 8</div>
+                <div class="task-item"><span class="task-check">◐</span> In Progress: 4</div>
+                <div class="task-item"><span class="task-check">○</span> Waiting: 0</div>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-card-icon">💰</div>
+              <div class="agent-card-name">Invoice Agent</div>
+              <div class="agent-card-status">Processing 8 invoices</div>
+              <div class="agent-card-tasks">
+                <div class="task-item"><span class="task-check">✓</span> Created: 5</div>
+                <div class="task-item"><span class="task-check">✓</span> Sent: 5</div>
+                <div class="task-item"><span class="task-check">◐</span> Paid: 3</div>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-card-icon">🚀</div>
+              <div class="agent-card-name">Outreach Agent</div>
+              <div class="agent-card-status">Running campaign</div>
+              <div class="agent-card-tasks">
+                <div class="task-item"><span class="task-check">✓</span> Sent: 150</div>
+                <div class="task-item"><span class="task-check">✓</span> Opens: 42%</div>
+                <div class="task-item"><span class="task-check">◐</span> Replies: 12</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="agent-features" id="features">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <span class="agent-section-label">What Agents Can Do</span>
+      <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 700;">
+        Built for How You Actually Work
+      </h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-number">01</div>
+        <h3 class="feature-title">Intelligent Automation</h3>
+        <p class="feature-desc">Agents that understand context, make decisions, and execute multi-step workflows without constant supervision.</p>
+        <div class="feature-metrics">
+          <div class="metric">
+            <span class="metric-value">60%</span>
+            <span class="metric-label">Less Manual Work</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">24/7</span>
+            <span class="metric-label">Availability</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-number">02</div>
+        <h3 class="feature-title">Smart CRM Management</h3>
+        <p class="feature-desc">Automated lead follow-ups, meeting scheduling, pipeline updates, and customer segmentation — handled.</p>
+        <div class="feature-metrics">
+          <div class="metric">
+            <span class="metric-value">30%</span>
+            <span class="metric-label">Shorter Sales Cycle</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">3x</span>
+            <span class="metric-label">More Touchpoints</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-number">03</div>
+        <h3 class="feature-title">Financial Operations</h3>
+        <p class="feature-desc">Invoicing, expense tracking, reconciliation, and financial reporting — all automated with real-time insights.</p>
+        <div class="feature-metrics">
+          <div class="metric">
+            <span class="metric-value">80%</span>
+            <span class="metric-label">Faster Invoicing</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Accuracy</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-number">04</div>
+        <h3 class="feature-title">Customer Support</h3>
+        <p class="feature-desc">AI agents that answer FAQs, route tickets, and resolve common issues — freeing your team for complex problems.</p>
+        <div class="feature-metrics">
+          <div class="metric">
+            <span class="metric-value">70%</span>
+            <span class="metric-label">Tickets Auto-Resolved</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">&lt;2m</span>
+            <span class="metric-label">Avg Response Time</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-number">05</div>
+        <h3 class="feature-title">Knowledge Management</h3>
+        <p class="feature-desc">Centralized, searchable knowledge base that learns from your documents, emails, and communications.</p>
+        <div class="feature-metrics">
+          <div class="metric">
+            <span class="metric-value">90%</span>
+            <span class="metric-label">Faster Info Retrieval</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">24/7</span>
+            <span class="metric-label">Self-Service</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-number">06</div>
+        <h3 class="feature-title">Marketing Automation</h3>
+        <p class="feature-desc">Campaign creation, content generation, social posting, and performance analysis — all coordinated.</p>
+        <div class="feature-metrics">
+          <div class="metric">
+            <span class="metric-value">2.5x</span>
+            <span class="metric-label">More Leads</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">40%</span>
+            <span class="metric-label">Lower CAC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="agent-process" id="process">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <span class="agent-section-label">How We Build</span>
+      <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 700;">
+        From Concept to Running Agents in Weeks
+      </h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 class="step-title">Discover & Map</h3>
+          <p class="step-desc">We analyze your operations, identify high-impact workflows, and map out where AI agents can deliver the biggest wins.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 class="step-title">Prototype in 2 Weeks</h3>
+          <p class="step-desc">First working agent deployed in 14 days. We iterate fast, prove value early, and adjust based on real performance.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 class="step-title">Expand & Optimize</h3>
+          <p class="step-desc">Once proven, we scale agents across more workflows. Continuous monitoring, tuning, and improvement.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3 class="step-title">Own & Scale</h3>
+          <p class="step-desc">You own everything. We hand over, train your team, and stay on standby for enhancements and new agents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="agent-cta" id="cta">
+    <div class="cta-glow"></div>
+    <div class="cta-content">
+      <h2 class="cta-title">
+        Ready to Automate<br>
+        <span class="highlight">What Keeps You Up at Night?</span>
+      </h2>
+      <p class="cta-sub">
+        Book a 25-minute pilot session. Bring your messiest workflow — we'll show you exactly how AI can handle it.
+      </p>
+      <a href="https://tally.so/r/n98Q5X" class="agent-btn agent-btn-primary" style="font-size: 18px; padding: 20px 40px;">
+        Let's Talk
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H5M16 2V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;">
+    <p style="color: var(--text-muted); font-size: 14px;">
+      © 2026 Syph Agency. <a href="index.html" style="color: var(--text-secondary); text-decoration: none;">Back to Home</a>
+    </p>
+  </footer>
+
+  <script>
+    // Neural Network Canvas Animation
+    const canvas = document.getElementById('neuralCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    let width, height;
+    let particles = [];
+    
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 2 + 1;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.5)';
+        ctx.fill();
+      }
+    }
+    
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+      }
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - dist / 150)})`;
+            ctx.stroke();
+          }
+        }
+      }
+      
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      
+      requestAnimationFrame(animate);
+    }
+    
+    resize();
+    initParticles();
+    animate();
+    
+    window.addEventListener('resize', () => {
+      resize();
+      initParticles();
+    });
+
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursor-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }, 100);
+    });
+
+    // Navigation scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
