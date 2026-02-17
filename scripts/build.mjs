@@ -11,6 +11,7 @@ async function main() {
 
   // Copy site entrypoints
   await cp(path.join(projectRoot, "index.html"), path.join(distDir, "index.html"));
+  await cp(path.join(projectRoot, "agentic-ai.html"), path.join(distDir, "agentic-ai.html"));
   await cp(path.join(projectRoot, "styles.css"), path.join(distDir, "styles.css"));
   await cp(path.join(projectRoot, "script.js"), path.join(distDir, "script.js"));
 
