@@ -1097,10 +1097,41 @@
     // Custom Cursor
     const cursor = document.getElementById('cursor');
     const cursorFollower = document.getElementById('cursor-follower');
-    
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+
     document.addEventListener('mousemove', (e) => {
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+      // Main cursor - fast follow
+      cursorX += (mouseX - cursorX) * 0.25;
+      cursorY += (mouseY - cursorY) * 0.25;
+      cursor.style.transform = `translate(${cursorX - 4}px, ${cursorY - 4}px)`;
+
+      // Follower - slower, smoother
+      followerX += (mouseX - followerX) * 0.08;
+      followerY += (mouseY - followerY) * 0.08;
+      cursorFollower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+
+      requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    // Cursor hover effects
+    const hoverElements = document.querySelectorAll('a, button, .problem-card, .feature-card');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+        cursorFollower.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+        cursorFollower.classList.remove('hover');
+      });
     });
 
     // Navigation scroll effect
