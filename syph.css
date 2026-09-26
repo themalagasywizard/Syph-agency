@@ -153,6 +153,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hvid.is-playing .hvid__play, .hvid.is-playing .hvid__tag, .hvid.is-playing .hvid__veil { opacity: 0; pointer-events: none; }
 .hvid.is-playing .hvid__mute { opacity: 1; pointer-events: auto; }
 .hvid.is-playing video { cursor: pointer; }
+.hvid video:fullscreen { object-fit: contain; border-radius: 0; background: #000; }
+.hvid video:-webkit-full-screen { object-fit: contain; border-radius: 0; background: #000; }
 .platform { padding: 40px 0 40px; overflow: clip; }
 .platform .sechead { margin-bottom: 0; }
 .hero__sky { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }

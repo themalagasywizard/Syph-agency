@@ -189,18 +189,38 @@
     hv.muted = true; hv.loop = true; hv.controls = false;
     if (!reduce) hv.play().catch(() => {});
   };
+  // Full screen must be requested inside the click itself, so playFilm is only called from handlers.
+  const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+  const enterFS = () => {
+    try {
+      if (hv.requestFullscreen) hv.requestFullscreen({ navigationUI: "hide" }).catch(() => {});
+      else if (hv.webkitRequestFullscreen) hv.webkitRequestFullscreen();
+      else if (hv.webkitEnterFullscreen) hv.webkitEnterFullscreen(); // iPhone Safari
+    } catch (_) {}
+  };
+  const exitFS = () => {
+    try {
+      if (document.exitFullscreen && document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      else if (document.webkitExitFullscreen && document.webkitFullscreenElement) document.webkitExitFullscreen();
+      else if (hv.webkitExitFullscreen && hv.webkitDisplayingFullscreen) hv.webkitExitFullscreen();
+    } catch (_) {}
+  };
   const playFilm = (at = 0) => {
     withSound = true; hwrap.classList.add("is-playing");
-    hv.loop = false; hv.muted = false; hmute.textContent = "SOUND ON";
+    hv.loop = false; hv.muted = false; hv.controls = true; hmute.textContent = "SOUND ON";
+    enterFS();
     const go = () => { try { hv.currentTime = at; } catch (_) {} hv.play().catch(() => { hv.muted = true; hv.play(); }); };
     hv.readyState >= 1 ? go() : hv.addEventListener("loadedmetadata", go, { once: true });
-    const r = hwrap.getBoundingClientRect();
-    if (r.top < 60 || r.bottom > innerHeight) hwrap.scrollIntoView({ behavior: "smooth", block: "center" });
   };
+  // leaving full screen returns the header to the silent preview
+  const onFS = () => { if (!fsEl() && withSound) preview(); };
+  document.addEventListener("fullscreenchange", onFS);
+  document.addEventListener("webkitfullscreenchange", onFS);
+  hv.addEventListener("webkitendfullscreen", () => { if (withSound) preview(); });
   $$("[data-play]").forEach(b => b.addEventListener("click", () => playFilm(0)));
   chapters.forEach(b => b.addEventListener("click", () => playFilm(+b.dataset.t)));
   hv.addEventListener("click", () => { if (!withSound) return; hv.paused ? hv.play() : hv.pause(); });
-  hv.addEventListener("ended", preview);
+  hv.addEventListener("ended", () => { exitFS(); preview(); });
   hmute.addEventListener("click", () => { hv.muted = !hv.muted; hmute.textContent = hv.muted ? "SOUND OFF" : "SOUND ON"; });
   if (reduce) { hv.removeAttribute("autoplay"); hv.pause(); }
   // pause the muted preview when the header is off screen; a sound playthrough keeps going
