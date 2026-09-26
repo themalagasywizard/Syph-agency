@@ -134,11 +134,12 @@
     const pu = document.createElementNS(NS, "g"); pu.innerHTML = `<circle r="9" fill="${c}" opacity=".16"/><circle r="2.8" fill="#fff"/>`; osvg.appendChild(pu);
     return { el, ln, pu };
   });
-  let orbitOn = true;
+  let orbitOn = false, skyOn = true;
   new IntersectionObserver(([e]) => { orbitOn = e.isIntersecting; }).observe(orbit);
+  new IntersectionObserver(([e]) => { skyOn = e.isIntersecting; }).observe($(".hero"));
   const drawOrbit = t => {
     const w = orbit.clientWidth, h = orbit.clientHeight, cx = w / 2, cy = h / 2;
-    const rx = Math.min(w * .44, 620), ry = rx * .34;
+    const rx = Math.min(w * (w < 600 ? .36 : .44), 620), ry = rx * .34;
     const tilt = mouse.y * .08;
     tiles.forEach((o, i) => {
       const a = i / tiles.length * Math.PI * 2 + t * .00012 + mouse.x * .6;
@@ -178,23 +179,46 @@
   evs.forEach((el, i) => { const [who, what] = EVENTS[i]; $(".ev__txt", el).innerHTML = `<b>${who}</b>${what}`; }); evi = 3;
   if (!reduce) setTimeout(cycleEv, 2500);
 
-  // ------------------------------------------------------------------ film
-  const frame = $("#filmFrame"), fvid = $("#filmVideo"), lb = $("#lightbox"), lbv = $("#lbVideo");
-  new IntersectionObserver(([e]) => {
-    if (reduce) return;
-    if (e.isIntersecting) { if (fvid.preload === "none") { fvid.preload = "auto"; fvid.load(); } fvid.play().catch(() => {}); }
-    else fvid.pause();
-  }, { threshold: .25 }).observe(frame);
-  const openFilm = (at = 0) => {
-    fvid.pause(); lb.hidden = false; document.body.style.overflow = "hidden";
-    const go = () => { try { lbv.currentTime = at; } catch (_) {} lbv.muted = false; lbv.play().catch(() => {}); };
-    if (lbv.readyState >= 1) go(); else { lbv.preload = "auto"; lbv.load(); lbv.addEventListener("loadedmetadata", go, { once: true }); }
-  };
-  const closeFilm = () => { lbv.pause(); lb.hidden = true; document.body.style.overflow = ""; };
-  $$("[data-play]").forEach(b => b.addEventListener("click", () => openFilm(0)));
+  // ------------------------------------------------------------------ hero film
+  // Muted preview loops in the header; any play button restarts it inline with sound.
+  const hv = $("#heroVideo"), hwrap = $("#hvid"), hmute = $("#hvMute");
   const chapters = $$("#chapters button");
-  chapters.forEach(b => b.addEventListener("click", () => openFilm(+b.dataset.t)));
-  $$("[data-lclose]").forEach(b => b.addEventListener("click", closeFilm));
+  let withSound = false;
+  const preview = () => {
+    withSound = false; hwrap.classList.remove("is-playing");
+    hv.muted = true; hv.loop = true; hv.controls = false;
+    if (!reduce) hv.play().catch(() => {});
+  };
+  const playFilm = (at = 0) => {
+    withSound = true; hwrap.classList.add("is-playing");
+    hv.loop = false; hv.muted = false; hmute.textContent = "SOUND ON";
+    const go = () => { try { hv.currentTime = at; } catch (_) {} hv.play().catch(() => { hv.muted = true; hv.play(); }); };
+    hv.readyState >= 1 ? go() : hv.addEventListener("loadedmetadata", go, { once: true });
+    const r = hwrap.getBoundingClientRect();
+    if (r.top < 60 || r.bottom > innerHeight) hwrap.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  $$("[data-play]").forEach(b => b.addEventListener("click", () => playFilm(0)));
+  chapters.forEach(b => b.addEventListener("click", () => playFilm(+b.dataset.t)));
+  hv.addEventListener("click", () => { if (!withSound) return; hv.paused ? hv.play() : hv.pause(); });
+  hv.addEventListener("ended", preview);
+  hmute.addEventListener("click", () => { hv.muted = !hv.muted; hmute.textContent = hv.muted ? "SOUND OFF" : "SOUND ON"; });
+  if (reduce) { hv.removeAttribute("autoplay"); hv.pause(); }
+  // pause the muted preview when the header is off screen; a sound playthrough keeps going
+  new IntersectionObserver(([e]) => {
+    if (withSound || reduce) return;
+    e.isIntersecting ? hv.play().catch(() => {}) : hv.pause();
+  }, { threshold: .15 }).observe(hwrap);
+  const CH = chapters.map(b => +b.dataset.t);
+  const tickChapters = () => {
+    const d = hv.duration || 48, ct = hv.currentTime;
+    chapters.forEach((c, i) => {
+      const a = CH[i], b = CH[i + 1] ?? d;
+      const f = clamp((ct - a) / (b - a));
+      c.style.setProperty("--f", f.toFixed(3));
+      c.classList.toggle("on", ct >= a && ct < b);
+    });
+  };
+  frameHooks.push(tickChapters);
 
   // ------------------------------------------------------------------ kinetic words
   const kw = $$("#kwords span");
@@ -251,16 +275,7 @@
   const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
   const onScroll = () => {
     const m = mobile();
-    // film grows to full size
     if (!m) {
-      // grow while the section scrolls in, then step through the chapters while pinned
-      const r = $("#film").getBoundingClientRect();
-      const k = clamp((innerHeight - r.top) / innerHeight);
-      const ease = 1 - (1 - k) ** 3;
-      frame.style.transform = `scale(${lerp(.78, 1, ease).toFixed(4)}) translateY(${lerp(50, 0, ease).toFixed(1)}px)`;
-      frame.style.borderRadius = lerp(36, 22, ease).toFixed(1) + "px";
-      const cp = progress($("#film")) * chapters.length;
-      chapters.forEach((c, i) => { const f = clamp(cp - i); c.style.setProperty("--f", f.toFixed(3)); c.classList.toggle("on", f > 0 && f < 1 || (i === chapters.length - 1 && f >= 1)); });
       // how it works: the step nearest the viewport centre is active
       const steps = $$(".step");
       let best = 0, bestD = Infinity;
@@ -424,7 +439,8 @@
   // ------------------------------------------------------------------ main loop
   const loop = t => {
     mouse.x += (mouse.tx - mouse.x) * .05; mouse.y += (mouse.ty - mouse.y) * .05;
-    if (orbitOn) { drawSky(t); drawOrbit(t); }
+    if (skyOn) drawSky(t);
+    if (orbitOn) drawOrbit(t);
     frameHooks.forEach(f => f(t));
     if (!reduce) requestAnimationFrame(loop);
   };
@@ -444,7 +460,7 @@
   const closeModal = () => { modal.hidden = true; document.body.style.overflow = ""; lastFocus?.focus?.(); };
   $$("[data-sales]").forEach(b => b.addEventListener("click", () => openModal(sales, b.dataset.sales || "")));
   $$("[data-close]").forEach(b => b.addEventListener("click", closeModal));
-  addEventListener("keydown", e => { if (e.key === "Escape") { if (!modal.hidden) closeModal(); if (!lb.hidden) closeFilm(); } });
+  addEventListener("keydown", e => { if (e.key === "Escape") { if (!modal.hidden) closeModal(); } });
 
   $$("[data-checkout]").forEach(a => {
     const plan = a.dataset.checkout, url = CHECKOUT[plan];
