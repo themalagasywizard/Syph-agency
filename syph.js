@@ -185,12 +185,15 @@
     if (e.isIntersecting) { if (fvid.preload === "none") { fvid.preload = "auto"; fvid.load(); } fvid.play().catch(() => {}); }
     else fvid.pause();
   }, { threshold: .25 }).observe(frame);
-  const openFilm = () => {
+  const openFilm = (at = 0) => {
     fvid.pause(); lb.hidden = false; document.body.style.overflow = "hidden";
-    lbv.currentTime = 0; lbv.muted = false; lbv.play().catch(() => {});
+    const go = () => { try { lbv.currentTime = at; } catch (_) {} lbv.muted = false; lbv.play().catch(() => {}); };
+    if (lbv.readyState >= 1) go(); else { lbv.preload = "auto"; lbv.load(); lbv.addEventListener("loadedmetadata", go, { once: true }); }
   };
   const closeFilm = () => { lbv.pause(); lb.hidden = true; document.body.style.overflow = ""; };
-  $$("[data-play]").forEach(b => b.addEventListener("click", openFilm));
+  $$("[data-play]").forEach(b => b.addEventListener("click", () => openFilm(0)));
+  const chapters = $$("#chapters button");
+  chapters.forEach(b => b.addEventListener("click", () => openFilm(+b.dataset.t)));
   $$("[data-lclose]").forEach(b => b.addEventListener("click", closeFilm));
 
   // ------------------------------------------------------------------ kinetic words
@@ -232,7 +235,13 @@
   const setHour = hr => {
     const hh = Math.floor(hr), mm = Math.floor((hr - hh) * 60);
     clock.textContent = `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}`;
-    dItems.forEach(o => { const on = hr >= o.h; o.card.classList.toggle("on", on); o.stem.classList.toggle("on", on); o.dot.classList.toggle("on", on); });
+    let doneN = 0, needN = 0;
+    dItems.forEach((o, i) => {
+      const on = hr >= o.h;
+      o.card.classList.toggle("on", on); o.stem.classList.toggle("on", on); o.dot.classList.toggle("on", on);
+      if (on) TASKS[i][5] ? needN++ : doneN++;
+    });
+    $("#dDone").textContent = doneN; $("#dNeed").textContent = needN;
   };
   // mobile: reveal cards as they scroll in
   const dayIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && mobile()) e.target.classList.add("on"); }), { rootMargin: "0px 0px -10% 0px" });
@@ -244,11 +253,22 @@
     const m = mobile();
     // film grows to full size
     if (!m) {
+      // grow while the section scrolls in, then step through the chapters while pinned
       const r = $("#film").getBoundingClientRect();
-      const k = clamp((innerHeight - r.top) / (innerHeight * 1.2));
+      const k = clamp((innerHeight - r.top) / innerHeight);
       const ease = 1 - (1 - k) ** 3;
-      frame.style.transform = `scale(${lerp(.74, 1, ease).toFixed(4)}) translateY(${lerp(60, 0, ease).toFixed(1)}px)`;
-      frame.style.borderRadius = lerp(40, 22, ease).toFixed(1) + "px";
+      frame.style.transform = `scale(${lerp(.78, 1, ease).toFixed(4)}) translateY(${lerp(50, 0, ease).toFixed(1)}px)`;
+      frame.style.borderRadius = lerp(36, 22, ease).toFixed(1) + "px";
+      const cp = progress($("#film")) * chapters.length;
+      chapters.forEach((c, i) => { const f = clamp(cp - i); c.style.setProperty("--f", f.toFixed(3)); c.classList.toggle("on", f > 0 && f < 1 || (i === chapters.length - 1 && f >= 1)); });
+      // how it works: the step nearest the viewport centre is active
+      const steps = $$(".step");
+      let best = 0, bestD = Infinity;
+      steps.forEach((s, i) => { const sr = s.getBoundingClientRect(); const d = Math.abs(sr.top + sr.height / 2 - innerHeight / 2); if (d < bestD) { bestD = d; best = i; } });
+      const hr0 = $(".how__steps").getBoundingClientRect();
+      const hp = clamp((innerHeight / 2 - hr0.top) / hr0.height) * steps.length;
+      bars.forEach((b, i) => b.style.setProperty("--f", clamp(hp - i).toFixed(3)));
+      if (hr0.top < innerHeight && hr0.bottom > 0) setStep(best);
     }
     // kinetic words light up
     const kr = $("#kwords").getBoundingClientRect();
@@ -264,11 +284,12 @@
       track.style.transform = `translateX(${-shift}px)`;
       fill.style.width = px + "px";
       setHour(hr);
+      $("#dayProg").style.transform = `scaleX(${clamp((p - .04) / .9).toFixed(4)})`;
+      $("#dayHint").style.opacity = p > .08 ? 0 : 1;
     } else {
       track.style.transform = ""; fill.style.width = "";
     }
   };
-  addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll();
 
   // ------------------------------------------------------------------ how-it-works demos
   // ids inside the stage become data-id so the demos can be cloned for mobile.
@@ -342,16 +363,18 @@
   const setStep = i => {
     if (i === active) return; active = i;
     $$(".step").forEach((s, j) => s.classList.toggle("is-active", j === i));
+    $(".how__prog span").textContent = `0${i + 1} / 03 · ${["CONNECT", "HIRE", "APPROVE"][i]}`;
     demos.forEach((d, j) => d.classList.toggle("is-on", j === i));
     deskRunners.forEach((r, j) => (j === i ? r.start() : r.stop()));
   };
   const stepIO = new IntersectionObserver(es => es.forEach(e => {
     const i = +e.target.dataset.step;
     if (mobile()) { e.isIntersecting ? mobRunners[i].start() : mobRunners[i].stop(); return; }
-    if (e.isIntersecting) setStep(i);
-  }), { rootMargin: "-45% 0px -45% 0px" });
+  }), { rootMargin: "-20% 0px -20% 0px" });
   $$(".step").forEach(s => stepIO.observe(s));
+  const bars = $$(".how__bars i");
   if (!mobile()) setStep(0);
+  addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll();
 
   // ------------------------------------------------------------------ bento: knowledge graph
   (() => {

@@ -32,7 +32,6 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "ss01" on, "cv11" on;
-  overflow-x: hidden;
 }
 img, video, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -186,10 +185,17 @@ section { position: relative; }
 .stack { -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 
 /* ----------------------------------------------------------- Film */
-.film { height: 220vh; }
-.film__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 36px; overflow: hidden; }
+.film { height: 210vh; }
+.film__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 28px; padding-top: 84px; overflow: hidden; }
 .film__head { display: flex; flex-direction: column; }
-.film__frame { position: relative; width: min(92vw, 1600px); margin: 0 auto; aspect-ratio: 16 / 9; max-height: 72vh; border-radius: 28px; overflow: hidden; border: 1px solid var(--line-2); background: #000; box-shadow: 0 60px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.6), 0 0 120px -30px rgba(74, 99, 217, .5); transform-origin: 50% 40%; will-change: transform; }
+.film__frame { position: relative; width: min(92vw, 1600px); margin: 0 auto; aspect-ratio: 16 / 9; max-height: 54vh; max-width: calc(54vh * 16 / 9); border-radius: 28px; overflow: hidden; border: 1px solid var(--line-2); background: #000; box-shadow: 0 60px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.6), 0 0 120px -30px rgba(74, 99, 217, .5); transform-origin: 50% 40%; will-change: transform; }
+.film__chapters { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; width: min(92vw, calc(54vh * 16 / 9), 1600px); margin: 0 auto; }
+.film__chapters button { position: relative; text-align: left; padding: 14px 0 0; font-size: 14px; color: var(--ink-3); transition: color .4s; }
+.film__chapters button span { display: block; font-size: 10.5px; margin-bottom: 2px; }
+.film__chapters button i { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255,255,255,.1); overflow: hidden; border-radius: 2px; }
+.film__chapters button i::after { content: ""; position: absolute; inset: 0; background: var(--acc); box-shadow: 0 0 10px var(--acc); transform: scaleX(var(--f, 0)); transform-origin: left; }
+.film__chapters button.on { color: var(--ink); }
+.film__chapters button:hover { color: var(--acc); }
 .film__frame video { width: 100%; height: 100%; object-fit: cover; }
 .film__veil { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(5,5,7,.1), rgba(5,5,7,.55)); pointer-events: none; transition: opacity .6s; }
 .film__play { position: absolute; left: 50%; top: 50%; width: 112px; height: 112px; margin: -56px 0 0 -56px; border-radius: 50%; display: grid; place-items: center; background: rgba(5,5,7,.45); backdrop-filter: blur(12px); color: #fff; transition: transform .6s var(--ease), background .3s; }
@@ -223,6 +229,10 @@ section { position: relative; }
 .step p b { color: var(--warm); font-weight: 550; }
 .step__demo-m { display: none; }
 .how__stage { position: sticky; top: 12vh; height: 76vh; min-height: 560px; }
+.how__prog { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: min(100%, 540px); display: flex; justify-content: space-between; align-items: center; z-index: 5; color: var(--acc); }
+.how__bars { display: flex; gap: 6px; }
+.how__bars i { width: 46px; height: 3px; border-radius: 2px; background: rgba(255,255,255,.1); position: relative; overflow: hidden; }
+.how__bars i::after { content: ""; position: absolute; inset: 0; background: var(--acc); transform: scaleX(var(--f, 0)); transform-origin: left; box-shadow: 0 0 8px var(--acc); }
 .demo { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transform: translateY(30px) scale(.97); filter: blur(10px); transition: opacity .7s var(--ease), transform .9s var(--ease), filter .7s var(--ease); pointer-events: none; }
 .demo.is-on { opacity: 1; transform: none; filter: none; }
 .panel { width: min(100%, 540px); border-radius: 30px; padding: 26px; background: linear-gradient(180deg, rgba(21, 23, 30, .95), rgba(11, 12, 16, .95)); border: 1px solid var(--line-2); box-shadow: 0 50px 100px -30px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.06), 0 0 100px -40px rgba(74, 99, 217, .6); }
@@ -298,12 +308,20 @@ section { position: relative; }
 .tap.on { opacity: 1; transform: scale(.85); }
 
 /* ----------------------------------------------------------- Day (horizontal) */
-.day { height: 340vh; }
+.day { height: 300vh; }
 .day__pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
 .day__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
 .day__clock { display: flex; flex-direction: column; align-items: flex-end; }
+.day__right { display: flex; align-items: flex-end; gap: 48px; }
+.day__stats { display: flex; gap: 32px; padding-bottom: 10px; }
+.day__stats div { display: flex; flex-direction: column; gap: 4px; }
+.day__stats b { font-size: 40px; font-weight: 400; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.day__foot { display: flex; align-items: center; gap: 16px; margin-top: 6px; }
+.day__prog { flex: 1; height: 2px; background: rgba(255,255,255,.1); border-radius: 2px; overflow: hidden; }
+.day__prog i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--deep), var(--acc)); transform: scaleX(0); transform-origin: left; }
+.day__hint { color: var(--acc); margin-left: 12px; transition: opacity .4s; }
 .clock { font-size: clamp(56px, 8vw, 116px); letter-spacing: -.04em; line-height: 1; font-weight: 400; font-variant-numeric: tabular-nums; }
-.day__track { position: relative; height: 420px; margin-top: 30px; will-change: transform; }
+.day__track { position: relative; height: 440px; margin-top: 20px; will-change: transform; }
 .day__rail { position: absolute; left: 0; top: 50%; height: 2px; width: 100%; background: rgba(255,255,255,.1); }
 .day__rail i { position: absolute; left: 0; top: -1px; height: 4px; width: 0; background: linear-gradient(90deg, transparent, var(--acc)); box-shadow: 0 0 16px rgba(157, 184, 255, .8); }
 .dtick { position: absolute; top: calc(50% - 8px); width: 1px; height: 16px; background: rgba(255,255,255,.2); }
@@ -495,7 +513,7 @@ section { position: relative; }
   .ev { font-size: 12.5px; }
   .ev--a { left: 3%; top: 4%; } .ev--b { right: 3%; top: auto; bottom: 24%; } .ev--c { display: none; }
   .film { height: auto; padding: 60px 0; }
-  .film__pin { position: relative; height: auto; }
+  .film__pin { position: relative; height: auto; padding-top: 0; }
   .film__frame { width: calc(100% - 2 * var(--gut)); border-radius: 18px; transform: none !important; }
   .film__play { width: 84px; height: 84px; margin: -42px 0 0 -42px; }
   .how__grid { grid-template-columns: 1fr; }
@@ -506,10 +524,21 @@ section { position: relative; }
   .step__demo-m { display: grid; place-items: center; margin-top: 28px; }
   .step__demo-m .demo { position: relative; inset: auto; opacity: 1; transform: none; filter: none; width: 100%; }
   .step__demo-m .phone { transform: none; animation: none; width: 270px; height: 560px; }
+  .demo > * { min-width: 0; max-width: 100%; }
+  .step__demo-m .panel { width: 100%; padding: 18px; border-radius: 24px; }
+  .step__demo-m .seg { font-size: 12.5px; }
+  .step__demo-m .seg span:not(.seg__hl) { padding: 8px 2px; }
+  .step__demo-m .hire__row { flex-wrap: wrap; gap: 0 10px; }
+  .step__demo-m .hire__name { font-size: 20px; }
+  .step__demo-m .fld__box { font-size: 14px; }
   .day { height: auto; }
   .day__pin { position: relative; height: auto; padding: 60px 0; }
   .day__head { flex-direction: column; align-items: flex-start; }
   .day__clock { align-items: flex-start; }
+  .day__right { gap: 28px; }
+  .day__stats { display: none; }
+  .day__foot { display: none; }
+  .film__chapters { display: none; }
   .day__track { width: auto !important; height: auto; margin: 30px var(--gut) 0; padding-left: 28px; transform: none !important; display: flex; flex-direction: column; gap: 14px; }
   .day__rail { left: 6px; top: 0; bottom: 0; width: 2px; height: auto; }
   .day__rail i { width: 4px !important; left: -1px; height: 100%; background: linear-gradient(var(--acc), transparent); }

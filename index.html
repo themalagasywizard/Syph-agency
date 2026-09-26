@@ -111,6 +111,14 @@
           </button>
           <div class="film__meta mono"><span>SYPH / LAUNCH FILM</span><span>0:48 · SOUND ON</span></div>
         </div>
+        <div class="film__chapters" id="chapters">
+          <button data-t="0"><i></i><span class="mono">00:00</span>The problem</button>
+          <button data-t="10"><i></i><span class="mono">00:10</span>Connect</button>
+          <button data-t="16"><i></i><span class="mono">00:16</span>Hire</button>
+          <button data-t="24"><i></i><span class="mono">00:24</span>Work</button>
+          <button data-t="32"><i></i><span class="mono">00:32</span>Approve</button>
+          <button data-t="38"><i></i><span class="mono">00:38</span>Scale</button>
+        </div>
       </div>
     </section>
 
@@ -155,6 +163,7 @@
             </li>
           </ol>
           <div class="how__stage" id="howStage" aria-hidden="true">
+            <div class="how__prog"><span class="mono tiny" id="howLbl">01 / 03 · CONNECT</span><div class="how__bars"><i></i><i></i><i></i></div></div>
             <!-- demo 0: connect -->
             <div class="demo demo--connect is-on" data-demo="0">
               <div class="panel">
@@ -215,11 +224,15 @@
             <p class="eyebrow">04 — A day with Atlas</p>
             <h2 class="h2 split">It starts at 8:00. <em class="serif">You start whenever.</em></h2>
           </div>
-          <div class="day__clock"><span class="mono dim tiny">ATLAS · LOCAL TIME</span><span class="clock mono" id="clock">08:00</span></div>
+          <div class="day__right">
+            <div class="day__stats mono"><div><span class="tiny dim">TASKS DONE</span><b id="dDone">0</b></div><div><span class="tiny dim">NEEDS YOU</span><b id="dNeed" class="warmtxt">0</b></div></div>
+            <div class="day__clock"><span class="mono dim tiny">ATLAS · LOCAL TIME</span><span class="clock mono" id="clock">08:00</span></div>
+          </div>
         </div>
         <div class="day__track" id="dayTrack">
           <div class="day__rail"><i id="dayFill"></i></div>
         </div>
+        <div class="wrap day__foot mono tiny"><span class="dim">08:00</span><div class="day__prog"><i id="dayProg"></i></div><span class="dim">18:00</span><span class="day__hint" id="dayHint">SCROLL TO RUN THE DAY ↓</span></div>
       </div>
     </section>
 
