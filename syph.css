@@ -124,7 +124,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ----------------------------------------------------------- Hero */
 .hero { position: relative; min-height: 100svh; padding: 128px 0 70px; overflow: hidden; isolation: isolate; display: flex; align-items: center; }
-.hero__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(36px, 4vw, 64px); align-items: center; max-width: 1600px; }
+.hero__grid { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr); gap: clamp(40px, 5.5vw, 96px); align-items: center; max-width: 1600px; }
 .hero__media { position: relative; z-index: 3; }
 .hero__media.in { transform: translateY(30px) scale(.96); }
 .is-ready .hero__media.in { transform: none; }
@@ -134,7 +134,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   background: linear-gradient(#000, #000) padding-box, conic-gradient(from var(--ang, 0deg), rgba(157,184,255,.08), rgba(157,184,255,.9), rgba(127,220,184,.7), rgba(157,184,255,.08) 45%, rgba(157,184,255,.08)) border-box;
   animation: ang 7s linear infinite;
   box-shadow: 0 60px 120px -40px rgba(0,0,0,.95), 0 0 140px -30px rgba(74, 99, 217, .75);
-  transform: perspective(1800px) rotateY(-7deg) rotateX(2deg); transition: transform 1.2s var(--ease), box-shadow .6s;
+  transform: perspective(2200px) rotateY(-4deg); transition: transform 1.2s var(--ease), box-shadow .6s;
 }
 .hvid:hover, .hvid.is-playing { transform: none; }
 .hvid.is-playing { box-shadow: 0 60px 140px -40px rgba(0,0,0,.95), 0 0 180px -20px rgba(74, 99, 217, .9); }
@@ -161,11 +161,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .pill { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); font-size: 14px; color: var(--ink-2); backdrop-filter: blur(8px); transition: border-color .3s, color .3s; }
 .pill:hover { border-color: rgba(157, 184, 255, .5); color: var(--ink); }
 .pill__tag { font-family: "Geist Mono"; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: var(--acc); color: var(--void); }
-.hero__title { margin: 26px 0 0; font-size: clamp(42px, 5.1vw, 84px); line-height: .98; letter-spacing: -.055em; font-weight: 600; max-width: 13ch; }
+.hero__title { margin: 0; font-size: clamp(38px, 3.7vw, 66px); max-width: none; line-height: .98; letter-spacing: -.055em; font-weight: 600; max-width: 13ch; }
 .hero__title .serif { font-size: 1.06em; letter-spacing: -.02em; }
-.hero__sub { margin: 24px 0 0; max-width: 540px; font-size: clamp(16px, 1.5vw, 19px); color: var(--ink-2); }
+.hero__title .line { white-space: nowrap; }
+.hero__sub { margin: 26px 0 0; max-width: 420px; line-height: 1.5; font-size: clamp(16px, 1.5vw, 19px); color: var(--ink-2); }
 .hero__sub b { color: var(--ink); font-weight: 550; }
-.hero__ctas { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__ctas { margin-top: 38px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.hero__link { font-size: 15.5px; }
 .hero__ctas.center { justify-content: center; }
 .hero__copy .btn--lg { padding: 0 22px; }
 .hero__micro { margin-top: 26px; font-size: 11.5px; color: var(--ink-3); }
@@ -218,10 +220,10 @@ section { position: relative; }
 .stack { -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 
 /* ----------------------------------------------------------- Film */
-.film__chapters { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 20px; }
-.film__chapters button { position: relative; text-align: left; padding: 12px 0 0; font-size: 13px; color: var(--ink-3); transition: color .4s; }
+.film__chapters { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 18px; }
+.film__chapters button { position: relative; text-align: left; padding: 10px 0 0; font-size: 12.5px; color: var(--ink-3); transition: color .4s; }
 .film__chapters button span { display: block; font-size: 10.5px; margin-bottom: 2px; }
-.film__chapters button i { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255,255,255,.1); overflow: hidden; border-radius: 2px; }
+.film__chapters button i { position: absolute; left: 0; right: 0; top: 0; height: 1.5px; background: rgba(255,255,255,.1); overflow: hidden; border-radius: 2px; }
 .film__chapters button i::after { content: ""; position: absolute; inset: 0; background: var(--acc); box-shadow: 0 0 10px var(--acc); transform: scaleX(var(--f, 0)); transform-origin: left; }
 .film__chapters button.on { color: var(--ink); }
 .film__chapters button:hover { color: var(--acc); }
@@ -523,19 +525,18 @@ section { position: relative; }
   .hero__grid { grid-template-columns: 1fr; gap: 44px; }
   .hero__copy { text-align: center; }
   .hero__title, .hero__sub { margin-left: auto; margin-right: auto; }
-  .hero__title { font-size: clamp(40px, 8vw, 84px); }
+  .hero__title { font-size: clamp(40px, 8vw, 84px); max-width: 13ch; }
+  .hero__title .line { white-space: normal; }
   .hero__ctas { justify-content: center; }
   .hero__media { width: 100%; max-width: 860px; margin: 0 auto; }
   .hvid { transform: none; }
   /* phones/tablets: headline, then the film, then the rest */
   .hero__copy { display: contents; }
   .hero__grid { gap: 0; }
-  .hero__copy .pill { order: 1; justify-self: center; }
   .hero__title { order: 2; }
   .hero__media { order: 3; margin-top: 32px; }
   .hero__sub { order: 4; margin-top: 32px; }
-  .hero__ctas { order: 5; }
-  .hero__micro { order: 6; }
+  .hero__ctas { order: 5; justify-content: center; }
 }
 @media (max-width: 1080px) {
   .nav__links { display: none; }
@@ -589,7 +590,8 @@ section { position: relative; }
   .mform__grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
-  .film__chapters { grid-template-columns: repeat(3, 1fr); row-gap: 14px; }
+  .film__chapters { grid-template-columns: repeat(3, 1fr); row-gap: 12px; }
+  .hero__ctas .link-btn { width: 100%; }
   .hvid { border-radius: 18px; }
   .hvid__btn { width: 80px; height: 80px; }
   .hvid__tag { display: none; }
