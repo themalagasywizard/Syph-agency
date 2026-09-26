@@ -2,729 +2,472 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syph Agency — We Build What's Next</title>
-  <meta name="description" content="Award-winning web app & iOS app agency for small businesses. We craft digital experiences that convert, scale, and dominate.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Syph — AI employees for small business</title>
+  <meta name="description" content="Syph connects Gmail, Calendar, Drive, Odoo, WhatsApp and the rest of your stack, then puts AI employees to work on the recurring tasks eating your week. They act. You approve.">
+  <meta name="theme-color" content="#050507">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Syph — Hire AI employees that already know your business">
+  <meta property="og:description" content="Connect your tools. Hire an AI employee. Approve what matters. Get your week back.">
+  <meta property="og:image" content="https://syph-software.com/assets/syph/og.jpg">
+  <meta property="og:url" content="https://syph-software.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/syph/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="syph.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursor-follower"></div>
-
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-text">
-        <span class="preloader-letter">S</span>
-        <span class="preloader-letter">Y</span>
-        <span class="preloader-letter">P</span>
-        <span class="preloader-letter">H</span>
-      </div>
-      <div class="preloader-bar">
-        <div class="preloader-progress" id="preloader-progress"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-text">syph<span class="logo-dot">.</span></span>
+  <!-- ============================== NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="brand" aria-label="Syph home">
+        <span class="mark mark--sm" aria-hidden="true"><i class="mark__arc"></i><i class="mark__node"></i></span>
+        <span class="brand__word">SYPH</span>
       </a>
-      <div class="nav-links" id="nav-links">
-        <a href="#work" class="nav-link" data-magnetic>Work</a>
-        <a href="#services" class="nav-link" data-magnetic>Services</a>
-        <a href="agentic-ai.html" class="nav-link" data-magnetic>Agentic AI</a>
-        <a href="#process" class="nav-link" data-magnetic>Process</a>
-        <a href="#pricing" class="nav-link" data-magnetic>Pricing</a>
-        <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="nav-cta" data-magnetic>
-          <span>Start a Project</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#film">Film</a>
+        <a href="#how">How it works</a>
+        <a href="#product">Product</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__cta">
+        <button class="link-btn" data-sales>Talk to sales</button>
+        <a href="#pricing" class="btn btn--primary btn--sm" data-magnetic><span>Get Syph</span></a>
       </div>
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-      </button>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-inner">
-      <a href="#work" class="mobile-link">Work</a>
-      <a href="#services" class="mobile-link">Services</a>
-      <a href="agentic-ai.html" class="mobile-link">Agentic AI</a>
-      <a href="#process" class="mobile-link">Process</a>
-      <a href="#pricing" class="mobile-link">Pricing</a>
-      <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="mobile-link accent">Start a Project</a>
-    </div>
+  </header>
+  <div class="mmenu" id="mmenu" aria-hidden="true">
+    <a href="#film">Film</a><a href="#how">How it works</a><a href="#product">Product</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+    <button class="link-btn" data-sales>Talk to sales</button>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
-      <div class="gradient-orb orb-3"></div>
-      <div class="grid-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge hero-anim">
-        <span class="badge-dot"></span>
-        Available for Q1 2026 projects
-      </div>
-      <h1 class="hero-title">
-        <span class="title-line hero-anim"><span>We build</span></span>
-        <span class="title-line hero-anim">
-          <span class="rotating-wrapper">
-            <span class="rotating-text" id="rotating-text">
-              <span class="rotating-word active">revenue machines</span>
-              <span class="rotating-word">growth engines</span>
-              <span class="rotating-word">unfair advantages</span>
-              <span class="rotating-word">apps people love</span>
-              <span class="rotating-word">digital empires</span>
-            </span>
-          </span>
-        </span>
-        <span class="title-line hero-anim"><span>for <em class="gradient-text">small businesses.</em></span></span>
-      </h1>
-      <p class="hero-sub hero-anim">
-        Custom web apps and iOS apps — designed to convert, built to scale,<br class="hide-mobile">
-        and polished to a level your competitors can't touch.
-      </p>
-      <div class="hero-ctas hero-anim">
-        <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="btn btn-primary" data-magnetic>
-          <span class="btn-text">Let's Build</span>
-          <span class="btn-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
+  <main id="main">
+    <!-- ============================== HERO -->
+    <section class="hero" id="top">
+      <canvas class="hero__sky" id="sky" aria-hidden="true"></canvas>
+      <div class="hero__halo" aria-hidden="true"></div>
+      <div class="wrap hero__copy">
+        <a href="#film" class="pill in" style="--d:0">
+          <span class="pill__tag">New</span>
+          <span>Meet Syph — your AI workforce</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#work" class="btn btn-ghost" data-magnetic>
-          <span class="btn-text">See Our Work</span>
-        </a>
+        <h1 class="hero__title">
+          <span class="line"><span class="in" style="--d:1">Hire AI employees</span></span>
+          <span class="line"><span class="in" style="--d:2">that <em class="serif">already know</em></span></span>
+          <span class="line"><span class="in" style="--d:3">your business.</span></span>
+        </h1>
+        <p class="hero__sub in" style="--d:4">Syph plugs into Gmail, Calendar, Drive, Odoo, WhatsApp and the rest of your stack — then puts AI employees to work on the recurring tasks eating your week. <b>They act. You approve.</b></p>
+        <div class="hero__ctas in" style="--d:5">
+          <a class="btn btn--primary btn--lg" data-checkout="solo" href="#pricing" data-magnetic><span>Start with Solo — €49/mo</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <button class="btn btn--ghost btn--lg" data-play data-magnetic><span class="playdot"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span><span>Watch the film · 0:48</span></button>
+        </div>
+        <p class="hero__micro mono in" style="--d:6">WEB + IOS &nbsp;·&nbsp; APPROVAL ON EVERY SENSITIVE ACTION &nbsp;·&nbsp; PAUSE ANYTIME</p>
       </div>
-      <div class="hero-stats hero-anim">
-        <div class="stat">
-          <span class="stat-number" data-count="47">0</span><span class="stat-plus">+</span>
-          <span class="stat-label">Apps Shipped</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-number" data-count="96">0</span><span class="stat-plus">%</span>
-          <span class="stat-label">Client Retention</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-number" data-count="4.9">0</span>
-          <span class="stat-label">Avg. Rating</span>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator hero-anim">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
 
-  <!-- Marquee -->
-  <section class="marquee-section">
-    <div class="marquee">
-      <div class="marquee-track">
-        <span class="marquee-item">Web Applications</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">iOS Development</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">UI/UX Design</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">Product Strategy</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">Brand Identity</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">Web Applications</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">iOS Development</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">UI/UX Design</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">Product Strategy</span>
-        <span class="marquee-separator">&#x2726;</span>
-        <span class="marquee-item">Brand Identity</span>
-        <span class="marquee-separator">&#x2726;</span>
+      <div class="orbit in" id="orbit" style="--d:5" aria-hidden="true">
+        <svg class="orbit__svg" id="orbitSvg"></svg>
+        <div class="orbit__core">
+          <span class="mark mark--xl"><i class="mark__arc"></i><i class="mark__node"></i></span>
+          <span class="orbit__label mono">SYPH</span>
+        </div>
+        <div class="orbit__tiles" id="orbitTiles"></div>
+        <div class="ev ev--a"><span class="ev__dot"></span><span class="ev__txt"></span></div>
+        <div class="ev ev--b"><span class="ev__dot"></span><span class="ev__txt"></span></div>
+        <div class="ev ev--c"><span class="ev__dot"></span><span class="ev__txt"></span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Featured Work -->
-  <section class="section work-section" id="work">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag reveal-up">Selected Work</span>
-        <h2 class="section-title reveal-up">
-          Projects that speak<br><span class="gradient-text">louder than pitches.</span>
-        </h2>
+    <!-- ============================== INTEGRATIONS MARQUEE -->
+    <section class="stack" aria-label="Integrations">
+      <p class="eyebrow center">Plugs into the stack you already run on</p>
+      <div class="marquee" id="marquee1"></div>
+      <div class="marquee marquee--rev" id="marquee2"></div>
+    </section>
+
+    <!-- ============================== FILM -->
+    <section class="film" id="film">
+      <div class="film__pin">
+        <div class="film__head wrap">
+          <p class="eyebrow">01 — The film</p>
+          <h2 class="h2 split">Forty-eight seconds. <em class="serif">One very good hire.</em></h2>
+        </div>
+        <div class="film__frame" id="filmFrame">
+          <video id="filmVideo" playsinline muted loop preload="none" poster="assets/syph/film-poster.jpg">
+            <source src="assets/syph/syph-film-720.mp4" type="video/mp4" media="(max-width: 900px)">
+            <source src="assets/syph/syph-film-1080.mp4" type="video/mp4">
+          </video>
+          <div class="film__veil"></div>
+          <button class="film__play" id="filmPlay" data-play aria-label="Play the Syph film with sound">
+            <span class="mark mark--play"><i class="mark__arc"></i></span>
+            <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5l12 7-12 7z" fill="currentColor"/></svg>
+          </button>
+          <div class="film__meta mono"><span>SYPH / LAUNCH FILM</span><span>0:48 · SOUND ON</span></div>
+        </div>
       </div>
-      <div class="work-grid">
-        <!-- Project 1: Librarix — Featured iOS App -->
-        <div class="flip-card reveal-up">
-          <div class="flip-card-inner" id="flip-librarix">
-            <!-- FRONT -->
-            <div class="flip-card-front">
-              <div class="work-card">
-                <div class="work-card-image">
-                  <div class="work-card-placeholder" style="background: linear-gradient(145deg, #0f2027 0%, #203a43 40%, #2c5364 100%);">
-                    <div class="device-showcase phone-showcase">
-                      <div class="device-phone">
-                        <div class="device-phone-notch"></div>
-                        <div class="device-phone-screen">
-                          <img src="assets/librarix-screenshot.png" alt="Librarix - Book Discovery App" loading="lazy">
-                        </div>
-                      </div>
-                      <div class="device-glow phone-glow"></div>
-                    </div>
-                  </div>
-                  <div class="work-card-hover-overlay">
-                    <h3 class="hover-title">Librarix</h3>
-                    <p class="hover-subtitle">iOS Book Library App</p>
-                    <button class="details-btn" data-flip="flip-librarix">
-                      <span>Details</span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="work-card-info">
-                  <div class="work-card-tags">
-                    <span class="tag">iOS App</span>
-                    <span class="tag">Swift</span>
-                    <span class="tag">Books</span>
-                  </div>
-                  <h3 class="work-card-title">Librarix</h3>
-                  <p class="work-card-desc">Personal library manager with ISBN scanning, curated collections, cloud sync, and dark mode. 5-star rated on the App Store.</p>
-                </div>
+    </section>
+
+    <!-- ============================== PROBLEM (kinetic) -->
+    <section class="kinetic" id="kinetic">
+      <div class="wrap">
+        <p class="eyebrow">02 — The problem</p>
+        <p class="kinetic__lead">Your business runs on a dozen apps. And every day, you're the glue between them:</p>
+        <p class="kinetic__words" id="kwords">
+          <span>Inbox.</span> <span>Leads.</span> <span>Follow-ups.</span> <span>Meetings.</span> <span>Quotes.</span> <span>Invoices.</span> <span>Decks.</span> <span>Pipeline.</span> <span>Replies.</span> <span class="warm">By hand.</span>
+        </p>
+        <p class="kinetic__turn split">Syph hands the busywork to AI employees <em class="serif">— and hands you back your week.</em></p>
+      </div>
+    </section>
+
+    <!-- ============================== HOW IT WORKS -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="sechead">
+          <p class="eyebrow">03 — How it works</p>
+          <h2 class="h2 split">Three steps from chaos <em class="serif">to a team that never clocks out.</em></h2>
+        </div>
+        <div class="how__grid">
+          <ol class="how__steps">
+            <li class="step is-active" data-step="0">
+              <span class="step__n mono">01</span>
+              <h3>Connect your tools</h3>
+              <p>Sign in once to Gmail, Calendar, Drive, Docs, Sheets, Odoo CRM, WhatsApp and Telegram. Decide per tool whether employees can only read — or also write.</p>
+              <div class="step__demo-m"></div>
+            </li>
+            <li class="step" data-step="1">
+              <span class="step__n mono">02</span>
+              <h3>Hire an AI employee</h3>
+              <p>Pick a role — Sales, Marketing, Executive assistant — or write your own. Give it a mission, a personality and a schedule. It inherits your company's context from the shared Brain.</p>
+              <div class="step__demo-m"></div>
+            </li>
+            <li class="step" data-step="2">
+              <span class="step__n mono">03</span>
+              <h3>Approve what matters</h3>
+              <p>Your employee works on its own, every day. Anything that sends, spends or commits waits in <b>Needs you</b> — one tap on the web or your iPhone.</p>
+              <div class="step__demo-m"></div>
+            </li>
+          </ol>
+          <div class="how__stage" id="howStage" aria-hidden="true">
+            <!-- demo 0: connect -->
+            <div class="demo demo--connect is-on" data-demo="0">
+              <div class="panel">
+                <div class="panel__head"><span class="mono">SETTINGS · INTEGRATIONS</span><span class="mono dim" id="connCount">0 / 8 CONNECTED</span></div>
+                <div class="conn-grid" id="connGrid"></div>
               </div>
             </div>
-            <!-- BACK -->
-            <div class="flip-card-back">
-              <div class="flip-back-content" style="background: linear-gradient(145deg, #0f2027 0%, #203a43 40%, #2c5364 100%);">
-                <button class="flip-close-btn" data-flip="flip-librarix" aria-label="Close">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </button>
-                <div class="flip-back-header">
-                  <div class="flip-back-tags">
-                    <span class="tag">iOS App</span>
-                    <span class="tag">Swift</span>
-                    <span class="tag">SwiftUI</span>
-                    <span class="tag">CloudKit</span>
-                  </div>
-                  <h3 class="flip-back-title">Librarix</h3>
-                  <div class="flip-back-rating">
-                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                    <span class="rating-text">5.0 on the App Store</span>
-                  </div>
+            <!-- demo 1: hire -->
+            <div class="demo demo--hire" data-demo="1">
+              <div class="panel">
+                <div class="hire__top">
+                  <div class="avatar"><span class="mark mark--av"><i class="mark__arc"></i></span><b id="hAv">?</b></div>
+                  <div><p class="mono dim tiny">NEW AI EMPLOYEE</p><p class="hire__name" id="hName">Untitled</p></div>
+                  <span class="status mono" id="hStatus"><i></i>DRAFT</span>
                 </div>
-                <div class="flip-back-body">
-                  <p>A personal library manager built for readers who are serious about their collections. Scan any ISBN with your camera, organize books into custom collections, and discover curated weekly picks.</p>
-                  <ul class="flip-feature-list">
-                    <li>ISBN barcode scanning for instant cataloging</li>
-                    <li>Curated weekly picks &amp; themed collections</li>
-                    <li>Cloud sync across all Apple devices</li>
-                    <li>Reading progress tracking &amp; notes</li>
-                    <li>Dark mode with high-contrast UI</li>
-                  </ul>
+                <div class="seg" id="hTpl"><span class="seg__hl"></span><span>Sales</span><span>Marketing</span><span>Exec. assistant</span></div>
+                <label class="fld"><span class="mono tiny dim">MISSION</span><span class="fld__box" id="hMission"></span></label>
+                <div class="hire__tools" id="hTools"></div>
+                <div class="hire__row">
+                  <label class="fld"><span class="mono tiny dim">AUTONOMY</span><span class="fld__box">Balanced</span></label>
+                  <label class="fld"><span class="mono tiny dim">WAKES UP</span><span class="fld__box" id="hWake">Only when asked</span></label>
                 </div>
-                <div class="flip-back-footer">
-                  <a href="https://apps.apple.com/es/app/librarix/id6758272285" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-magnetic>
-                    <span class="btn-text">View on App Store</span>
-                    <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                  </a>
-                </div>
+                <div class="hire__btn" id="hBtn"><span>Hire Atlas</span></div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Apeiron — Featured Web App -->
-        <div class="flip-card reveal-up">
-          <div class="flip-card-inner" id="flip-apeiron">
-            <!-- FRONT -->
-            <div class="flip-card-front">
-              <div class="work-card">
-                <div class="work-card-image">
-                  <div class="work-card-placeholder" style="background: linear-gradient(145deg, #0a0a0a 0%, #12101a 40%, #1a1333 100%);">
-                    <div class="device-showcase browser-showcase">
-                      <div class="device-browser">
-                        <div class="device-browser-bar">
-                          <div class="browser-dots">
-                            <span></span><span></span><span></span>
-                          </div>
-                          <div class="browser-url">
-                            <span>apeiron-oss.netlify.app</span>
-                          </div>
-                        </div>
-                        <div class="device-browser-screen">
-                          <img src="assets/apeiron-screenshot.png" alt="Apeiron - AI Chat Interface" loading="lazy">
-                        </div>
-                      </div>
-                      <div class="device-glow browser-glow"></div>
-                    </div>
+            <!-- demo 2: approve -->
+            <div class="demo demo--approve" data-demo="2">
+              <div class="phone">
+                <div class="phone__screen">
+                  <div class="phone__island"></div>
+                  <div class="phone__bar"><span>9:41</span><span>●●●</span></div>
+                  <div class="sheet" id="aSheet">
+                    <p class="sheet__t">Review action</p>
+                    <p class="sheet__s">A decision for Atlas</p>
+                    <div class="sheet__who"><b>A</b><div><p>Atlas</p><p class="warmtxt" id="aState">Waiting for your approval</p></div></div>
+                    <p class="sheet__h">Send Tomasz the Q4 proposal</p>
+                    <p class="sheet__l">Action you're authorizing</p>
+                    <p class="sheet__b">Email proposal.pdf from your Gmail to ABC Stone.</p>
+                    <div class="sheet__rec"><p>↳ Recommended action</p><p>Send today. €94k — above your €90k floor.</p></div>
+                    <div class="sheet__btn" id="aBtn"><span>✓ Approve action</span></div>
+                    <p class="sheet__dec">Decline</p>
                   </div>
-                  <div class="work-card-hover-overlay">
-                    <h3 class="hover-title">Apeiron</h3>
-                    <p class="hover-subtitle">AI Chat Platform</p>
-                    <button class="details-btn" data-flip="flip-apeiron">
-                      <span>Details</span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="work-card-info">
-                  <div class="work-card-tags">
-                    <span class="tag">Web App</span>
-                    <span class="tag">AI</span>
-                    <span class="tag">Chat Interface</span>
-                  </div>
-                  <h3 class="work-card-title">Apeiron</h3>
-                  <p class="work-card-desc">AI-powered chat platform with multi-model support, project organization, and a refined conversational interface built for clarity.</p>
-                </div>
-              </div>
-            </div>
-            <!-- BACK -->
-            <div class="flip-card-back">
-              <div class="flip-back-content" style="background: linear-gradient(145deg, #0a0a0a 0%, #12101a 40%, #1a1333 100%);">
-                <button class="flip-close-btn" data-flip="flip-apeiron" aria-label="Close">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </button>
-                <div class="flip-back-header">
-                  <div class="flip-back-tags">
-                    <span class="tag">Web App</span>
-                    <span class="tag">AI</span>
-                    <span class="tag">React</span>
-                    <span class="tag">API Integration</span>
-                  </div>
-                  <h3 class="flip-back-title">Apeiron</h3>
-                  <div class="flip-back-rating">
-                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                    <span class="rating-text">Multi-model AI platform</span>
-                  </div>
-                </div>
-                <div class="flip-back-body">
-                  <p>A refined AI chat platform with multi-model support, project-based organization, and a conversational interface built for power users who need clarity and speed.</p>
-                  <ul class="flip-feature-list">
-                    <li>Multi-model support (Claude, GPT, and more)</li>
-                    <li>Project &amp; conversation organization</li>
-                    <li>Real-time streaming responses</li>
-                    <li>Comparison mode across models</li>
-                    <li>Minimal, distraction-free dark UI</li>
-                  </ul>
-                </div>
-                <div class="flip-back-footer">
-                  <a href="https://apeiron-oss.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-magnetic>
-                    <span class="btn-text">Visit Live Site</span>
-                    <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                  </a>
+                  <div class="sent" id="aSent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><path d="M36 62l16 16 32-34"/></svg><p>Sent to Tomasz</p><span>From your Gmail · logged in Odoo CRM</span></div>
+                  <div class="tap" id="aTap"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Project 3: Showcase wide card -->
-        <div class="work-card work-card-wide reveal-up" data-tilt>
-          <div class="work-card-image">
-            <div class="work-card-placeholder" style="background: linear-gradient(135deg, #2b193f 0%, #3a1f55 45%, #5a2a7c 100%);">
-              <div class="device-showcase phone-showcase">
-                <div class="device-phone">
-                  <div class="device-phone-notch"></div>
-                  <div class="device-phone-screen">
-                    <img src="assets/grapper-login.png" alt="Grapper influencer dashboard login" loading="lazy">
-                  </div>
-                </div>
-                <div class="device-glow phone-glow"></div>
-              </div>
+    <!-- ============================== DAY TIMELINE -->
+    <section class="day" id="day">
+      <div class="day__pin">
+        <div class="wrap day__head">
+          <div>
+            <p class="eyebrow">04 — A day with Atlas</p>
+            <h2 class="h2 split">It starts at 8:00. <em class="serif">You start whenever.</em></h2>
+          </div>
+          <div class="day__clock"><span class="mono dim tiny">ATLAS · LOCAL TIME</span><span class="clock mono" id="clock">08:00</span></div>
+        </div>
+        <div class="day__track" id="dayTrack">
+          <div class="day__rail"><i id="dayFill"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== BENTO -->
+    <section class="bento-sec" id="product">
+      <div class="wrap">
+        <div class="sechead">
+          <p class="eyebrow">05 — Product</p>
+          <h2 class="h2 split">Everything an employee needs. <em class="serif">Nothing you have to babysit.</em></h2>
+        </div>
+        <div class="bento">
+          <article class="card card--brain spot">
+            <div class="card__txt">
+              <p class="mono tiny acc">SHARED BRAIN</p>
+              <h3>Context, not prompts.</h3>
+              <p>Save your company identity once. Drop in documents, PDFs, even audio and video — Syph turns them into shared memory every employee retrieves on every task.</p>
             </div>
-            <div class="work-card-overlay">
-              <span class="view-project" data-magnetic>Grapper
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
+            <svg class="graph" id="graph" viewBox="0 0 520 300" aria-hidden="true"></svg>
+          </article>
+          <article class="card card--needs spot">
+            <p class="mono tiny warmtxt">NEEDS YOU · 2</p>
+            <h3>Approvals, not surprises.</h3>
+            <div class="needs">
+              <div class="needs__row"><b>A</b><span>Send Q4 proposal to ABC Stone</span><em>Approve</em></div>
+              <div class="needs__row"><b>V</b><span>Publish October campaign</span><em>Approve</em></div>
+              <div class="needs__row is-done"><b>I</b><span>Accept supplier call, Thu 14:00</span><em>Done</em></div>
             </div>
-          </div>
-          <div class="work-card-info">
-            <div class="work-card-tags">
-              <span class="tag">Web App</span>
-              <span class="tag">Dashboard</span>
-              <span class="tag">Influencer</span>
+          </article>
+          <article class="card card--sched spot">
+            <p class="mono tiny acc">SCHEDULES</p>
+            <h3>Wakes up on time. Every time.</h3>
+            <div class="dial" aria-hidden="true"><i class="dial__hand"></i><i class="dial__dot"></i></div>
+            <div class="chips-s"><span class="on">Daily at 08:00</span><span>Twice a day</span><span>Every hour</span><span>When I ask</span></div>
+          </article>
+          <article class="card card--chat spot">
+            <p class="mono tiny acc">ANYWHERE</p>
+            <h3>Message your team from WhatsApp, Telegram or the iOS app.</h3>
+            <div class="chat" id="chat">
+              <p class="chat__me">Where are we with ABC Stone?</p>
+              <p class="chat__ai">Proposal's drafted at €94k. Waiting on your OK — it's in Needs you.</p>
+              <p class="chat__typing"><i></i><i></i><i></i></p>
             </div>
-            <h3 class="work-card-title">Grapper</h3>
-            <p class="work-card-desc">An influencer agency dashboard built to communicate with creators, track campaigns and events, and deliver the tools they need to do their best work.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="section services-section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag reveal-up">What We Do</span>
-        <h2 class="section-title reveal-up">
-          Two things. Done<br><span class="gradient-text">unreasonably well.</span>
-        </h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal-up" data-tilt>
-          <div class="service-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <rect x="2" y="6" width="36" height="28" rx="4" stroke="url(#grad1)" stroke-width="2"/>
-              <line x1="2" y1="12" x2="38" y2="12" stroke="url(#grad1)" stroke-width="2"/>
-              <circle cx="7" cy="9" r="1.5" fill="#667eea"/>
-              <circle cx="12" cy="9" r="1.5" fill="#764ba2"/>
-              <circle cx="17" cy="9" r="1.5" fill="#f093fb"/>
-              <defs><linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#667eea"/><stop offset="1" stop-color="#764ba2"/></linearGradient></defs>
-            </svg>
-          </div>
-          <h3 class="service-title">Web Applications</h3>
-          <p class="service-desc">Full-stack web apps that load fast, scale effortlessly, and convert visitors into customers. From SaaS dashboards to e-commerce platforms.</p>
-          <ul class="service-list">
-            <li>React / Next.js / Vue</li>
-            <li>Node.js / Python / Go</li>
-            <li>PostgreSQL / MongoDB</li>
-            <li>AWS / Vercel / Railway</li>
-          </ul>
-          <div class="service-bottom">
-            <span class="service-number">01</span>
-          </div>
-        </div>
-
-        <div class="service-card reveal-up" data-tilt>
-          <div class="service-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <rect x="10" y="2" width="20" height="36" rx="5" stroke="url(#grad2)" stroke-width="2"/>
-              <line x1="16" y1="6" x2="24" y2="6" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="20" cy="33" r="2" stroke="url(#grad2)" stroke-width="1.5"/>
-              <defs><linearGradient id="grad2" x1="10" y1="2" x2="30" y2="38"><stop stop-color="#f093fb"/><stop offset="1" stop-color="#f5576c"/></linearGradient></defs>
-            </svg>
-          </div>
-          <h3 class="service-title">iOS Applications</h3>
-          <p class="service-desc">Native Swift apps that feel like they belong on the device. Buttery animations, offline-first, and the kind of polish that earns 5-star reviews.</p>
-          <ul class="service-list">
-            <li>Swift / SwiftUI</li>
-            <li>Core Data / CloudKit</li>
-            <li>Push Notifications</li>
-            <li>App Store Optimization</li>
-          </ul>
-          <div class="service-bottom">
-            <span class="service-number">02</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Agentic AI Promo -->
-      <div class="agentic-promo reveal-up" style="margin-top: 60px; padding: 40px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; text-align: center;">
-        <span style="display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #00d4ff; margin-bottom: 12px;">New</span>
-        <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 12px;">Agentic AI for Small Business</h3>
-        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 24px; line-height: 1.6;">Autonomous AI agents that handle operations, automate workflows, and scale your business — deployed in weeks.</p>
-        <a href="agentic-ai.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-          <span>Explore Agentic AI</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section class="section process-section" id="process">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag reveal-up">How We Work</span>
-        <h2 class="section-title reveal-up">
-          From idea to App Store<br><span class="gradient-text">in four moves.</span>
-        </h2>
-      </div>
-      <div class="process-timeline">
-        <div class="process-line">
-          <div class="process-line-fill" id="process-line-fill"></div>
-        </div>
-        <div class="process-step reveal-up">
-          <div class="process-dot"></div>
-          <div class="process-content">
-            <span class="process-number">01</span>
-            <h3 class="process-title">Discovery</h3>
-            <p class="process-desc">We dissect your business, your users, your competitors. No fluff workshops — real strategic thinking that shapes everything downstream.</p>
-            <span class="process-duration">Week 1</span>
-          </div>
-        </div>
-        <div class="process-step reveal-up">
-          <div class="process-dot"></div>
-          <div class="process-content">
-            <span class="process-number">02</span>
-            <h3 class="process-title">Design</h3>
-            <p class="process-desc">Wireframes, prototypes, UI design. You'll interact with your app before a single line of code is written. We iterate until it feels inevitable.</p>
-            <span class="process-duration">Weeks 2–3</span>
-          </div>
-        </div>
-        <div class="process-step reveal-up">
-          <div class="process-dot"></div>
-          <div class="process-content">
-            <span class="process-number">03</span>
-            <h3 class="process-title">Build</h3>
-            <p class="process-desc">Clean architecture. Rigorous testing. Weekly demos so you always know exactly where things stand. No surprises, no bloat.</p>
-            <span class="process-duration">Weeks 4–8</span>
-          </div>
-        </div>
-        <div class="process-step reveal-up">
-          <div class="process-dot"></div>
-          <div class="process-content">
-            <span class="process-number">04</span>
-            <h3 class="process-title">Launch & Scale</h3>
-            <p class="process-desc">Deployment, monitoring, App Store submission. Then we stay on to optimize, iterate, and grow alongside your business.</p>
-            <span class="process-duration">Week 9+</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="section pricing-section" id="pricing">
-    <div class="container">
-      <div class="section-header center">
-        <span class="section-tag reveal-up">Pricing</span>
-        <h2 class="section-title reveal-up">
-          Transparent pricing.<br><span class="gradient-text">No surprises. Ever.</span>
-        </h2>
-        <p class="section-subtitle reveal-up">Every project is different, but here's a clear starting point so you know exactly what to expect.</p>
-      </div>
-      <div class="pricing-grid">
-        <!-- Starter -->
-        <div class="pricing-card reveal-up">
-          <div class="pricing-header">
-            <span class="pricing-tier">Starter</span>
-            <div class="pricing-price">
-              <span class="pricing-currency">$</span>
-              <span class="pricing-amount">999</span>
+          </article>
+          <article class="card card--limits spot">
+            <p class="mono tiny acc">GUARDRAILS</p>
+            <h3>You set the limits.</h3>
+            <div class="limits">
+              <div class="lim"><span>Gmail</span><span class="rw"><i>Read</i><i class="on">Write</i></span></div>
+              <div class="lim"><span>Odoo CRM</span><span class="rw"><i>Read</i><i class="on">Write</i></span></div>
+              <div class="lim"><span>Drive</span><span class="rw"><i class="on">Read</i><i>Write</i></span></div>
+              <div class="lim lim--auto"><span>Autonomy</span><span class="rw"><i>Careful</i><i class="on">Balanced</i><i>Bold</i></span></div>
             </div>
-            <span class="pricing-period">starting price</span>
-          </div>
-          <p class="pricing-desc">Perfect for small businesses that need a clean, fast, high-converting web presence.</p>
-          <ul class="pricing-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Landing page or marketing site
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Mobile-responsive design
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Up to 5 pages
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              SEO foundations
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              2 rounds of revisions
-            </li>
-          </ul>
-          <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="btn btn-ghost btn-pricing" data-magnetic>
-            <span class="btn-text">Get Started</span>
-          </a>
+            <div class="pause"><span class="pause__dot"></span>Pause all employees — instantly</div>
+          </article>
+          <article class="card card--log spot">
+            <p class="mono tiny acc">ACTIVITY</p>
+            <h3>Every step, on the record.</h3>
+            <div class="log mono" id="log"></div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <!-- Pro — Featured -->
-        <div class="pricing-card pricing-featured reveal-up">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-header">
-            <span class="pricing-tier">Pro</span>
-            <div class="pricing-price">
-              <span class="pricing-currency">$</span>
-              <span class="pricing-amount">1,999</span>
-            </div>
-            <span class="pricing-period">starting price</span>
-          </div>
-          <p class="pricing-desc">Full-stack web app or native iOS app — built from scratch with custom design and real functionality.</p>
-          <ul class="pricing-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Custom web app or iOS app
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              UI/UX design in Figma
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              User auth &amp; database
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              API integrations
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              App Store submission (iOS)
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              30 days post-launch support
-            </li>
-          </ul>
-          <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="btn btn-primary btn-pricing" data-magnetic>
-            <span class="btn-text">Get Started</span>
-            <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+    <!-- ============================== ROLES -->
+    <section class="roles" id="roles">
+      <div class="wrap">
+        <div class="sechead">
+          <p class="eyebrow">06 — Roles</p>
+          <h2 class="h2 split">Start with a proven role. <em class="serif">Or write your own.</em></h2>
         </div>
+        <div class="roles__grid">
+          <article class="role spot rv">
+            <div class="role__top"><span class="role__av" style="--c:#F4F5F7">A</span><div><h3>Sales</h3><p class="dim">Market &amp; Sales · wakes twice a day</p></div></div>
+            <blockquote>“Find qualified buyers, keep the pipeline honest, follow up, and surface only the decisions that need you.”</blockquote>
+            <div class="role__tools" data-tools="crm,web,mail,sheet"></div>
+          </article>
+          <article class="role spot rv">
+            <div class="role__top"><span class="role__av" style="--c:#E3A55F">V</span><div><h3>Marketing</h3><p class="dim">Campaigns &amp; briefs · every morning</p></div></div>
+            <blockquote>“Research the market, draft campaigns, and keep a brief ready before anyone asks.”</blockquote>
+            <div class="role__tools" data-tools="web,doc,slides,drive"></div>
+          </article>
+          <article class="role spot rv">
+            <div class="role__top"><span class="role__av" style="--c:#9DB8FF">I</span><div><h3>Executive assistant</h3><p class="dim">Inbox &amp; calendar · every morning</p></div></div>
+            <blockquote>“Keep the inbox, calendar and follow-ups from eating the week. Interrupt only when time or money is at stake.”</blockquote>
+            <div class="role__tools" data-tools="mail,cal,drive,wa"></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- Scale -->
-        <div class="pricing-card reveal-up">
-          <div class="pricing-header">
-            <span class="pricing-tier">Scale</span>
-            <div class="pricing-price">
-              <span class="pricing-currency">$</span>
-              <span class="pricing-amount">2999</span>
-            </div>
-            <span class="pricing-period">starting price</span>
-          </div>
-          <p class="pricing-desc">Web + iOS, complex features, ongoing partnership. For businesses ready to go all in on digital.</p>
-          <ul class="pricing-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Web app + iOS app
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Admin dashboard
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Payment processing
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Analytics &amp; reporting
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Dedicated project manager
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              90 days post-launch support
-            </li>
-          </ul>
-          <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="btn btn-ghost btn-pricing" data-magnetic>
-            <span class="btn-text">Let's Talk</span>
-          </a>
+    <!-- ============================== PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <div class="sechead center">
+          <p class="eyebrow">07 — Pricing</p>
+          <h2 class="h2 split">Cheaper than a temp. <em class="serif">Works every day.</em></h2>
         </div>
+        <div class="plans">
+          <article class="plan spot rv">
+            <p class="plan__name">Solo</p>
+            <p class="plan__for dim">For the owner who does everything.</p>
+            <p class="plan__price"><span class="cur">€</span><span class="amt">49</span><span class="per">/ month</span></p>
+            <a class="btn btn--ghost btn--block" data-checkout="solo" href="#pricing"><span>Start Solo</span></a>
+            <ul class="plan__list">
+              <li>1 AI employee</li>
+              <li>Gmail, Calendar, Drive, Docs &amp; Sheets</li>
+              <li>Approvals on web &amp; iOS</li>
+              <li>Shared company Brain</li>
+              <li>Daily schedules</li>
+            </ul>
+          </article>
+          <article class="plan plan--hot spot rv">
+            <span class="plan__badge mono">MOST POPULAR</span>
+            <p class="plan__name">Team</p>
+            <p class="plan__for dim">For small teams ready to delegate for real.</p>
+            <p class="plan__price"><span class="cur">€</span><span class="amt">149</span><span class="per">/ month</span></p>
+            <a class="btn btn--primary btn--block" data-checkout="team" href="#pricing" data-magnetic><span>Start Team</span></a>
+            <ul class="plan__list">
+              <li>Up to 5 AI employees</li>
+              <li>Everything in Solo</li>
+              <li>Odoo CRM, WhatsApp &amp; Telegram</li>
+              <li>Digest — docs, PDFs &amp; audio into memory</li>
+              <li>On-brand slide decks</li>
+              <li>Hourly schedules</li>
+            </ul>
+          </article>
+          <article class="plan spot rv">
+            <p class="plan__name">Business</p>
+            <p class="plan__for dim">For companies running a whole AI workforce.</p>
+            <p class="plan__price"><span class="from mono">FROM</span><span class="cur">€</span><span class="amt">399</span><span class="per">/ month</span></p>
+            <button class="btn btn--ghost btn--block" data-sales="Business"><span>Talk to sales</span></button>
+            <ul class="plan__list">
+              <li>Unlimited AI employees</li>
+              <li>Everything in Team</li>
+              <li>Custom tools &amp; integrations</li>
+              <li>Guided onboarding for your team</li>
+              <li>Priority support</li>
+            </ul>
+          </article>
+        </div>
+        <p class="plans__note dim">Prices in EUR, billed monthly. VAT may apply.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Tech Stack -->
-  <section class="section tech-section">
-    <div class="container">
-      <div class="section-header center">
-        <span class="section-tag reveal-up">Our Stack</span>
-        <h2 class="section-title reveal-up">
-          Built with the tools<br><span class="gradient-text">that actually matter.</span>
-        </h2>
-      </div>
-      <div class="tech-orbit reveal-up">
-        <div class="tech-logos">
-          <div class="tech-logo" data-magnetic><span>React</span></div>
-          <div class="tech-logo" data-magnetic><span>Next.js</span></div>
-          <div class="tech-logo" data-magnetic><span>Swift</span></div>
-          <div class="tech-logo" data-magnetic><span>Node.js</span></div>
-          <div class="tech-logo" data-magnetic><span>TypeScript</span></div>
-          <div class="tech-logo" data-magnetic><span>PostgreSQL</span></div>
-          <div class="tech-logo" data-magnetic><span>Figma</span></div>
-          <div class="tech-logo" data-magnetic><span>AWS</span></div>
-          <div class="tech-logo" data-magnetic><span>Python</span></div>
-          <div class="tech-logo" data-magnetic><span>Firebase</span></div>
-          <div class="tech-logo" data-magnetic><span>SwiftUI</span></div>
-          <div class="tech-logo" data-magnetic><span>Vercel</span></div>
+    <!-- ============================== FAQ -->
+    <section class="faq" id="faq">
+      <div class="wrap faq__grid">
+        <div>
+          <p class="eyebrow">08 — FAQ</p>
+          <h2 class="h2 split">Questions, <em class="serif">answered.</em></h2>
+          <p class="dim faq__side">Something else? <button class="link-btn acc" data-sales>Talk to sales →</button></p>
+        </div>
+        <div class="faq__list">
+          <details><summary>What exactly is an “AI employee”?</summary><p>A persistent agent with a name, a role, a mission and access to the tools you choose. It wakes up on its schedule, reads what's new, does the work, and keeps a memory of your preferences — like “never negotiate below €90k”.</p></details>
+          <details><summary>Can it do things without my permission?</summary><p>Only what you allow. You choose read or write access per tool and an autonomy level per employee. Actions that leave your workspace — like sending an email — wait for your approval in Needs you. You can pause one employee, or all of them, at any time.</p></details>
+          <details><summary>Which tools does Syph connect to?</summary><p>Gmail, Google Calendar, Drive, Docs and Sheets, Odoo CRM, WhatsApp, Telegram, web research and on-brand slide decks — with more on the way. Business plans can add custom integrations.</p></details>
+          <details><summary>Do I need to be technical?</summary><p>No. You connect tools by signing in, and you brief employees in plain language — the same way you'd brief a new hire.</p></details>
+          <details><summary>Is there a mobile app?</summary><p>Yes. Syph runs on the web and on iPhone, so you can chat with your team and approve actions from anywhere.</p></details>
+          <details><summary>How does billing work?</summary><p>Solo and Team are monthly subscriptions paid by card. Business is tailored to your team — talk to sales and we'll size it with you.</p></details>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="section cta-section" id="contact">
-    <div class="cta-bg">
-      <div class="gradient-orb orb-cta-1"></div>
-      <div class="gradient-orb orb-cta-2"></div>
-    </div>
-    <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title reveal-up">
-          <span>Ready to build</span>
-          <span><em class="gradient-text">something legendary?</em></span>
-        </h2>
-        <p class="cta-sub reveal-up">Tell us about your project. We'll tell you exactly how we'd build it — free, no strings attached.</p>
-        <div class="cta-actions reveal-up">
-          <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-magnetic>
-            <span class="btn-text">Start Your Project</span>
-            <span class="btn-icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </a>
-        </div>
-        <div class="cta-guarantee reveal-up">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1L12.39 3.86L16.18 3.63L16.41 7.42L19.27 9.81L17.5 13.17L18.73 16.73L15.17 17.96L12.78 20.82L10 19.05L7.22 20.82L4.83 17.96L1.27 16.73L2.5 13.17L0.73 9.81L3.59 7.42L3.82 3.63L7.61 3.86L10 1Z" fill="url(#grad3)" fill-opacity="0.15" stroke="url(#grad3)" stroke-width="1"/>
-            <path d="M7 10.5L9 12.5L13.5 8" stroke="url(#grad3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="grad3" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#667eea"/><stop offset="1" stop-color="#f093fb"/></linearGradient></defs>
-          </svg>
-          <span>Free consultation &bull; No commitment &bull; Response within 24h</span>
+    <!-- ============================== FINAL CTA -->
+    <section class="final" id="start">
+      <div class="final__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="wrap final__inner">
+        <span class="mark mark--xl" aria-hidden="true"><i class="mark__arc"></i><i class="mark__node"></i></span>
+        <h2 class="final__title split">Your first AI employee <em class="serif">starts tomorrow at 8:00.</em></h2>
+        <div class="hero__ctas center">
+          <a class="btn btn--primary btn--lg" data-checkout="solo" href="#pricing" data-magnetic><span>Get started — €49/mo</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <button class="btn btn--ghost btn--lg" data-sales data-magnetic><span>Talk to sales</span></button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="logo-text">syph<span class="logo-dot">.</span></span>
-          <p class="footer-tagline">Building what's next for small businesses.</p>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Navigation</h4>
-          <a href="#work" class="footer-link">Work</a>
-          <a href="#services" class="footer-link">Services</a>
-          <a href="agentic-ai.html" class="footer-link">Agentic AI</a>
-          <a href="#process" class="footer-link">Process</a>
-          <a href="#pricing" class="footer-link">Pricing</a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Connect</h4>
-          <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener" class="footer-link">Contact Form</a>
-          <a href="#" class="footer-link">Twitter / X</a>
-          <a href="#" class="footer-link">LinkedIn</a>
-          <a href="#" class="footer-link">Dribbble</a>
-        </div>
+  <!-- ============================== FOOTER -->
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <div>
+        <a href="/" class="brand"><span class="mark mark--sm"><i class="mark__arc"></i><i class="mark__node"></i></span><span class="brand__word">SYPH</span></a>
+        <p class="dim foot__tag">AI employees for small business.<br>Your tools. Your context. Your AI team.</p>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Syph Agency. All rights reserved.</span>
-        <span class="footer-credit">Crafted with obsession.</span>
-      </div>
+      <div><p class="mono tiny dim">PRODUCT</p><a href="#film">Film</a><a href="#how">How it works</a><a href="#product">Features</a><a href="#pricing">Pricing</a></div>
+      <div><p class="mono tiny dim">COMPANY</p><a href="agency.html">Syph Agency</a><a href="agentic-ai.html">Agentic AI services</a><button class="link-btn" data-sales>Talk to sales</button></div>
     </div>
+    <div class="wrap foot__base mono tiny dim"><span>© 2026 Syph Software</span><span>Made with care in Europe</span></div>
+    <p class="foot__giant" aria-hidden="true">SYPH</p>
   </footer>
 
-  <!-- GSAP & Lenis from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="script.js"></script>
+  <!-- ============================== MODALS -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__scrim" data-close></div>
+    <div class="modal__card">
+      <button class="modal__x" data-close aria-label="Close">✕</button>
+      <!-- sales -->
+      <form class="mform" id="salesForm" name="sales" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="sales">
+        <input type="hidden" name="plan" value="">
+        <p class="hide"><label>Leave empty <input name="bot-field"></label></p>
+        <p class="eyebrow">Talk to sales</p>
+        <h3 id="modalTitle">Let's size your AI workforce.</h3>
+        <p class="dim">Tell us a little about your business — we'll reply within one business day.</p>
+        <div class="mform__grid">
+          <label><span>Name</span><input name="name" required autocomplete="name"></label>
+          <label><span>Work email</span><input name="email" type="email" required autocomplete="email"></label>
+          <label><span>Company</span><input name="company" autocomplete="organization"></label>
+          <label><span>Team size</span><select name="team_size"><option>1–5</option><option>6–20</option><option>21–50</option><option>51–200</option><option>200+</option></select></label>
+          <label class="full"><span>What would you hand to an AI employee first?</span><textarea name="message" rows="3" placeholder="e.g. Qualify inbound leads in Odoo and follow up by email"></textarea></label>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><span>Send</span></button>
+        <p class="mform__err" hidden>Something went wrong. Please try again, or use our <a href="https://tally.so/r/n98Q5X" target="_blank" rel="noopener">contact form</a>.</p>
+      </form>
+      <!-- waitlist (used while checkout links are not yet configured) -->
+      <form class="mform" id="waitForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="waitlist">
+        <input type="hidden" name="plan" value="">
+        <p class="hide"><label>Leave empty <input name="bot-field"></label></p>
+        <p class="eyebrow" id="waitPlan">Solo</p>
+        <h3>Checkout opens in a few days.</h3>
+        <p class="dim">Leave your email and you'll be first in — at launch pricing.</p>
+        <div class="mform__grid">
+          <label class="full"><span>Work email</span><input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><span>Reserve my spot</span></button>
+        <p class="mform__err" hidden>Something went wrong. Please try again.</p>
+      </form>
+      <div class="mdone" id="mdone" hidden>
+        <span class="mark mark--xl"><i class="mark__arc"></i><i class="mark__node"></i></span>
+        <h3>Got it — thank you.</h3>
+        <p class="dim">We'll be in touch shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- film lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lightbox__scrim" data-lclose></div>
+    <div class="lightbox__frame">
+      <button class="modal__x" data-lclose aria-label="Close film">✕</button>
+      <video id="lbVideo" controls playsinline preload="none" poster="assets/syph/film-poster.jpg">
+        <source src="assets/syph/syph-film-720.mp4" type="video/mp4" media="(max-width: 900px)">
+        <source src="assets/syph/syph-film-1080.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script src="syph.js" defer></script>
 </body>
 </html>
