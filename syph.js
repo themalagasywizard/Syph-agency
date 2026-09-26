@@ -37,7 +37,10 @@
     ["wa", "WhatsApp", "#7FDCB8"], ["tg", "Telegram", "#8FD0FF"], ["slides", "Decks", "#E3A55F"], ["web", "Web", "#F4F5F7"],
   ];
   const frameHooks = [];
-  const svg = (k, c) => `<svg viewBox="0 0 24 24" stroke="${c}">${G[k]}</svg>`;
+  // Brand hues resolve to theme tokens so icons stay legible in light mode.
+  const HUE = { "#FF8A80": "--danger", "#9DB8FF": "--acc", "#E3A55F": "--warm", "#7FDCB8": "--mint", "#C6A8FF": "--violet", "#8FD0FF": "--sky", "#F4F5F7": "--ink" };
+  const hue = c => HUE[c] ? `var(${HUE[c]}, ${c})` : c;
+  const svg = (k, c) => `<svg viewBox="0 0 24 24" style="stroke:${hue(c)}">${G[k]}</svg>`;
   const toolBy = k => TOOLS.find(t => t[0] === k);
 
   // ------------------------------------------------------------------ intro + nav
@@ -96,6 +99,10 @@
 
   // ------------------------------------------------------------------ hero sky (canvas)
   const sky = $("#sky"), sx = sky.getContext("2d");
+  const lightQ = matchMedia("(prefers-color-scheme: light)");
+  let skyInk = [];
+  const setSkyInk = () => { skyInk = lightQ.matches ? ["12,16,32", "61,91,217"] : ["255,255,255", "220,228,255"]; };
+  setSkyInk(); lightQ.addEventListener("change", setSkyInk);
   let skyW = 0, skyH = 0, dpr = 1, stars = [], mouse = { x: 0, y: 0, tx: 0, ty: 0 };
   const sizeSky = () => {
     dpr = Math.min(2, devicePixelRatio || 1);
@@ -111,14 +118,14 @@
     // hairline orbits
     sx.save(); sx.translate(skyW / 2 + mouse.x * 30, -skyH * .45 + mouse.y * 20);
     for (let i = 0; i < 3; i++) {
-      sx.strokeStyle = `rgba(255,255,255,${.07 - i * .018})`; sx.lineWidth = 1;
+      sx.strokeStyle = `rgba(${skyInk[0]},${.07 - i * .018})`; sx.lineWidth = 1;
       sx.beginPath(); sx.ellipse(0, 0, skyW * (.62 + i * .14), skyH * (.95 + i * .2), Math.sin(t * .0001 + i) * .12, 0, Math.PI * 2); sx.stroke();
     }
     sx.restore();
     for (const s of stars) {
       const y = (s.y - t * .006 * s.z + skyH * 10) % skyH;
       const a = (.1 + .55 * s.z) * (.55 + .45 * Math.sin(t * .002 + s.p));
-      sx.fillStyle = `rgba(220,228,255,${a})`;
+      sx.fillStyle = `rgba(${skyInk[1]},${a})`;
       const sz = .6 + s.z * 1.4;
       sx.fillRect(s.x + mouse.x * 26 * s.z, y + mouse.y * 18 * s.z, sz, sz);
     }
@@ -130,8 +137,8 @@
   const tiles = TOOLS.map(([k, n, c]) => {
     const el = document.createElement("div"); el.className = "tile";
     el.innerHTML = `${svg(k, c)}<span>${n}</span><i></i>`; tilesEl.appendChild(el);
-    const ln = document.createElementNS(NS, "line"); ln.setAttribute("stroke", "rgba(157,184,255,.35)"); ln.setAttribute("stroke-width", "1"); osvg.appendChild(ln);
-    const pu = document.createElementNS(NS, "g"); pu.innerHTML = `<circle r="9" fill="${c}" opacity=".16"/><circle r="2.8" fill="#fff"/>`; osvg.appendChild(pu);
+    const ln = document.createElementNS(NS, "line"); ln.style.stroke = "rgba(var(--acc-rgb), .35)"; ln.setAttribute("stroke-width", "1"); osvg.appendChild(ln);
+    const pu = document.createElementNS(NS, "g"); pu.innerHTML = `<circle r="9" style="fill:${hue(c)}" opacity=".16"/><circle r="2.8" style="fill:var(--ink)"/>`; osvg.appendChild(pu);
     return { el, ln, pu };
   });
   let orbitOn = false, skyOn = true;
