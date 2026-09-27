@@ -764,6 +764,62 @@ section { position: relative; }
   .step { padding-left: 44px; }
   .btn--lg { --h: 48px; font-size: 15px; }
 }
+/* Audit follow-up: sticky anchors, chapter chips, how-indent, plan lists */
+@media (max-width: 860px) {
+  #top, #how, #product, #pricing, #faq, #platform, #roles {
+    scroll-margin-top: 88px;
+  }
+  .film__chapters {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 12px;
+    margin-top: 16px;
+  }
+  .film__chapters button {
+    min-height: 44px;
+    padding: 12px 4px 4px;
+    font-size: 12.5px;
+    letter-spacing: -.015em;
+  }
+  .film__chapters button span { display: none; }
+  .how .sechead { padding-right: 0; }
+  .step {
+    padding: 22px 0 32px 40px;
+  }
+  .step__n {
+    top: 26px;
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+  .step h3 { font-size: clamp(22px, 6vw, 28px); }
+  .step p { font-size: 15px; line-height: 1.55; }
+  .plan__list {
+    gap: 11px;
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .plan__list li { gap: 10px; }
+  .plan__list li::before { margin-top: 2px; }
+}
+@media (max-width: 520px) {
+  #top, #how, #product, #pricing, #faq, #platform, #roles {
+    scroll-margin-top: 78px;
+  }
+  .film__chapters {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 10px;
+  }
+  .film__chapters button {
+    font-size: 13px;
+    min-height: 46px;
+    padding: 14px 6px 6px;
+  }
+  .step { padding: 18px 0 28px 36px; }
+  .step__n { width: 28px; height: 28px; font-size: 10.5px; top: 22px; }
+  .plan { padding: 20px 16px; }
+  .plan__list { font-size: 14px; gap: 10px; }
+  .plan__price .amt { font-size: 52px; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
   .grain { display: none; }
