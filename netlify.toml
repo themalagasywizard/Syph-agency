@@ -10,7 +10,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -20,3 +19,24 @@
   from = "/agency"
   to = "/agency.html"
   status = 200
+
+# Syph web console (jarvis-client-console) under /platform.
+# Platform is built with Next.js basePath=/platform.
+[[redirects]]
+  from = "/platform"
+  to = "https://jarvis-client-console.netlify.app/platform"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/platform/*"
+  to = "https://jarvis-client-console.netlify.app/platform/:splat"
+  status = 200
+  force = true
+
+# Same-origin API for the console (cookies on syph-software.com).
+[[redirects]]
+  from = "/api/v1/*"
+  to = "https://srv1982864.hstgr.cloud/api/v1/:splat"
+  status = 200
+  force = true
