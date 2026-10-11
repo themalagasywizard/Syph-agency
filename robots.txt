@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /platform
+Disallow: /api/
+
+Sitemap: https://syph-software.com/sitemap.xml

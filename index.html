@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Syph — AI employees for small business</title>
-  <meta name="description" content="Syph connects Gmail, Calendar, Drive, Odoo, WhatsApp and the rest of your stack, then puts AI employees to work on the recurring tasks eating your week. They act. You approve.">
+  <title>Syph: AI employees for small businesses</title>
+  <meta name="description" content="Syph gives small businesses AI employees that work in Gmail, Calendar, Drive, Odoo and WhatsApp on a schedule. You approve anything they send or spend.">
+  <link rel="canonical" href="https://syph-software.com/">
   <meta name="theme-color" content="#050507">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Syph — Hire AI employees that already know your business">
-  <meta property="og:description" content="Connect your tools. Hire an AI employee. Approve what matters. Get your week back.">
+  <meta property="og:title" content="Syph: AI employees that already know your business">
+  <meta property="og:description" content="Connect Gmail, Calendar, Drive and your CRM, give an AI employee a role and a schedule, and approve its work from the web or your iPhone.">
+  <meta property="og:site_name" content="Syph">
   <meta property="og:image" content="https://syph-software.com/assets/syph/og.jpg">
   <meta property="og:url" content="https://syph-software.com/">
   <meta name="twitter:card" content="summary_large_image">
@@ -17,6 +19,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="syph.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+   {"@type":"Organization","@id":"https://syph-software.com/#org","name":"Syph Software","url":"https://syph-software.com/","logo":"https://syph-software.com/assets/syph/favicon.svg"},
+   {"@type":"SoftwareApplication","name":"Syph","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS","url":"https://syph-software.com/","publisher":{"@id":"https://syph-software.com/#org"},"description":"AI employee platform for small businesses. AI employees connect to Gmail, Google Calendar, Drive, Docs, Sheets, Odoo CRM, WhatsApp and Telegram, run on a schedule, and ask for approval before sending or spending.","offers":[{"@type":"Offer","name":"Solo","price":"49","priceCurrency":"EUR"},{"@type":"Offer","name":"Team","price":"149","priceCurrency":"EUR"},{"@type":"Offer","name":"Business","price":"399","priceCurrency":"EUR","description":"Starting price"}]},
+   {"@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What exactly is an “AI employee”?", "acceptedAnswer": {"@type": "Answer", "text": "A persistent agent with a name, a role, a mission and access to the tools you choose. It wakes up on its schedule, reads what's new, does the work, and remembers your preferences, for example “never negotiate below €90k”."}},{"@type": "Question", "name": "Can it do things without my permission?", "acceptedAnswer": {"@type": "Answer", "text": "Only what you allow. You choose read or write access per tool and an autonomy level per employee. Actions that leave your workspace, such as sending an email, wait for your approval in Needs you. You can pause one employee, or all of them, at any time."}},{"@type": "Question", "name": "Which tools does Syph connect to?", "acceptedAnswer": {"@type": "Answer", "text": "Gmail, Google Calendar, Drive, Docs and Sheets, Odoo CRM, WhatsApp, Telegram, web research and on-brand slide decks, with more on the way. Business plans can add custom integrations."}},{"@type": "Question", "name": "Do I need to be technical?", "acceptedAnswer": {"@type": "Answer", "text": "No. You connect tools by signing in, and you brief employees in plain language, the same way you'd brief a new hire."}},{"@type": "Question", "name": "Is there a mobile app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Syph runs on the web and on iPhone, so you can chat with your team and approve actions from anywhere."}},{"@type": "Question", "name": "How does billing work?", "acceptedAnswer": {"@type": "Answer", "text": "Solo and Team are monthly subscriptions paid by card. Business is tailored to your team. Talk to sales and we'll work out the right size with you."}}]}
+  ]}
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -58,9 +67,9 @@
             <span class="line"><span class="in" style="--d:2">that <em class="serif">already know</em></span></span>
             <span class="line"><span class="in" style="--d:3">your business.</span></span>
           </h1>
-          <p class="hero__sub in" style="--d:4">Connect your tools. Hire an AI employee.<br>Approve what matters.</p>
+          <p class="hero__sub in" style="--d:4">Syph is an AI employee platform for small businesses. You connect the apps you already use, give each employee a role and a schedule, and it handles the recurring work. Anything that sends an email or spends money waits for your OK.</p>
           <div class="hero__ctas in" style="--d:5">
-            <a class="btn btn--primary btn--lg" data-checkout="solo" href="#pricing" data-magnetic><span>Get started — €49/mo</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--primary btn--lg" data-checkout="solo" href="#pricing" data-magnetic><span>Get started for €49/mo</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <button class="link-btn hero__link" data-sales>Talk to sales →</button>
           </div>
         </div>
@@ -91,7 +100,7 @@
 
     <!-- ============================== INTEGRATIONS MARQUEE -->
     <section class="stack" aria-label="Integrations">
-      <p class="eyebrow center">Plugs into the stack you already run on</p>
+      <p class="eyebrow center">Works with the apps you already use</p>
       <div class="marquee" id="marquee1"></div>
       <div class="marquee marquee--rev" id="marquee2"></div>
     </section>
@@ -99,8 +108,8 @@
     <!-- ============================== PLATFORM (orbit) -->
     <section class="platform" id="platform">
       <div class="wrap sechead center">
-        <p class="eyebrow">01 — The platform</p>
-        <h2 class="h2 split">Every tool you run on. <em class="serif">One brain behind them.</em></h2>
+        <p class="eyebrow">01 · The platform</p>
+        <h2 class="h2 split">Your apps, connected <em class="serif">to one shared memory</em></h2>
       </div>
       <div class="orbit" id="orbit" aria-hidden="true">
         <svg class="orbit__svg" id="orbitSvg"></svg>
@@ -118,12 +127,12 @@
     <!-- ============================== PROBLEM (kinetic) -->
     <section class="kinetic" id="kinetic">
       <div class="wrap">
-        <p class="eyebrow">02 — The problem</p>
-        <p class="kinetic__lead">Your business runs on a dozen apps. And every day, you're the glue between them:</p>
-        <p class="kinetic__words" id="kwords">
+        <p class="eyebrow">02 · The problem</p>
+        <p class="kinetic__lead">Most small businesses run on a dozen apps, and someone has to copy things between them by hand. Usually that someone is you: the inbox, new leads, follow-ups, meetings, quotes, invoices, decks and the pipeline.</p>
+        <p class="kinetic__words" id="kwords" aria-hidden="true">
           <span>Inbox.</span> <span>Leads.</span> <span>Follow-ups.</span> <span>Meetings.</span> <span>Quotes.</span> <span>Invoices.</span> <span>Decks.</span> <span>Pipeline.</span> <span>Replies.</span> <span class="warm">By hand.</span>
         </p>
-        <p class="kinetic__turn split">Syph hands the busywork to AI employees <em class="serif">— and hands you back your week.</em></p>
+        <p class="kinetic__turn split">Syph gives that repetitive work to AI employees, <em class="serif">so you get those hours back.</em></p>
       </div>
     </section>
 
@@ -131,27 +140,27 @@
     <section class="how" id="how">
       <div class="wrap">
         <div class="sechead">
-          <p class="eyebrow">03 — How it works</p>
-          <h2 class="h2 split">Three steps from chaos <em class="serif">to a team that never clocks out.</em></h2>
+          <p class="eyebrow">03 · How it works</p>
+          <h2 class="h2 split">How Syph works <em class="serif">in three steps</em></h2>
         </div>
         <div class="how__grid">
           <ol class="how__steps">
             <li class="step is-active" data-step="0">
               <span class="step__n mono">01</span>
               <h3>Connect your tools</h3>
-              <p>Sign in once to Gmail, Calendar, Drive, Docs, Sheets, Odoo CRM, WhatsApp and Telegram. Decide per tool whether employees can only read — or also write.</p>
+              <p>Sign in once to Gmail, Calendar, Drive, Docs, Sheets, Odoo CRM, WhatsApp and Telegram. For each tool, you decide whether employees can only read or can also make changes.</p>
               <div class="step__demo-m"></div>
             </li>
             <li class="step" data-step="1">
               <span class="step__n mono">02</span>
               <h3>Hire an AI employee</h3>
-              <p>Pick a role — Sales, Marketing, Executive assistant — or write your own. Give it a mission, a personality and a schedule. It inherits your company's context from the shared Brain.</p>
+              <p>Pick a role like Sales, Marketing or Executive assistant, or write your own. Give it a mission, a personality and a schedule. It picks up your company's background from the shared Brain, so you don't have to explain it twice.</p>
               <div class="step__demo-m"></div>
             </li>
             <li class="step" data-step="2">
               <span class="step__n mono">03</span>
               <h3>Approve what matters</h3>
-              <p>Your employee works on its own, every day. Anything that sends, spends or commits waits in <b>Needs you</b> — one tap on the web or your iPhone.</p>
+              <p>Your employee works on its own every day. Anything that sends, spends or commits you to something waits in <b>Needs you</b>, and you approve it with one tap on the web or your iPhone.</p>
               <div class="step__demo-m"></div>
             </li>
           </ol>
@@ -195,7 +204,7 @@
                     <p class="sheet__h">Send Tomasz the Q4 proposal</p>
                     <p class="sheet__l">Action you're authorizing</p>
                     <p class="sheet__b">Email proposal.pdf from your Gmail to ABC Stone.</p>
-                    <div class="sheet__rec"><p>↳ Recommended action</p><p>Send today. €94k — above your €90k floor.</p></div>
+                    <div class="sheet__rec"><p>↳ Recommended action</p><p>Send today. €94k, above your €90k floor.</p></div>
                     <div class="sheet__btn" id="aBtn"><span>✓ Approve action</span></div>
                     <p class="sheet__dec">Decline</p>
                   </div>
@@ -214,8 +223,8 @@
       <div class="day__pin">
         <div class="wrap day__head">
           <div>
-            <p class="eyebrow">04 — A day with Atlas</p>
-            <h2 class="h2 split">It starts at 8:00. <em class="serif">You start whenever.</em></h2>
+            <p class="eyebrow">04 · A day with Atlas</p>
+            <h2 class="h2 split">A typical day <em class="serif">for an AI employee</em></h2>
           </div>
           <div class="day__right">
             <div class="day__stats mono"><div><span class="tiny dim">TASKS DONE</span><b id="dDone">0</b></div><div><span class="tiny dim">NEEDS YOU</span><b id="dNeed" class="warmtxt">0</b></div></div>
@@ -233,21 +242,21 @@
     <section class="bento-sec" id="product">
       <div class="wrap">
         <div class="sechead">
-          <p class="eyebrow">05 — Product</p>
-          <h2 class="h2 split">Everything an employee needs. <em class="serif">Nothing you have to babysit.</em></h2>
+          <p class="eyebrow">05 · Product</p>
+          <h2 class="h2 split">What each AI employee <em class="serif">can work with</em></h2>
         </div>
         <div class="bento">
           <article class="card card--brain spot">
             <div class="card__txt">
               <p class="mono tiny acc">SHARED BRAIN</p>
-              <h3>Context, not prompts.</h3>
-              <p>Save your company identity once. Drop in documents, PDFs, even audio and video — Syph turns them into shared memory every employee retrieves on every task.</p>
+              <h3>A shared company memory</h3>
+              <p>Save your company identity once. Add documents, PDFs, audio and video, and Syph turns them into shared memory every employee retrieves on every task.</p>
             </div>
             <svg class="graph" id="graph" viewBox="0 0 520 300" aria-hidden="true"></svg>
           </article>
           <article class="card card--needs spot">
             <p class="mono tiny warmtxt">NEEDS YOU · 2</p>
-            <h3>Approvals, not surprises.</h3>
+            <h3>Nothing goes out without approval</h3>
             <div class="needs">
               <div class="needs__row"><b>A</b><span>Send Q4 proposal to ABC Stone</span><em>Approve</em></div>
               <div class="needs__row"><b>V</b><span>Publish October campaign</span><em>Approve</em></div>
@@ -256,7 +265,7 @@
           </article>
           <article class="card card--sched spot">
             <p class="mono tiny acc">SCHEDULES</p>
-            <h3>Wakes up on time. Every time.</h3>
+            <h3>Runs on a schedule you set</h3>
             <div class="dial" aria-hidden="true"><i class="dial__hand"></i><i class="dial__dot"></i></div>
             <div class="chips-s"><span class="on">Daily at 08:00</span><span>Twice a day</span><span>Every hour</span><span>When I ask</span></div>
           </article>
@@ -265,24 +274,24 @@
             <h3>Message your team from WhatsApp, Telegram or the iOS app.</h3>
             <div class="chat" id="chat">
               <p class="chat__me">Where are we with ABC Stone?</p>
-              <p class="chat__ai">Proposal's drafted at €94k. Waiting on your OK — it's in Needs you.</p>
+              <p class="chat__ai">Proposal's drafted at €94k. It's in Needs you, waiting on your OK.</p>
               <p class="chat__typing"><i></i><i></i><i></i></p>
             </div>
           </article>
           <article class="card card--limits spot">
             <p class="mono tiny acc">GUARDRAILS</p>
-            <h3>You set the limits.</h3>
+            <h3>Permissions and autonomy levels</h3>
             <div class="limits">
               <div class="lim"><span>Gmail</span><span class="rw"><i>Read</i><i class="on">Write</i></span></div>
               <div class="lim"><span>Odoo CRM</span><span class="rw"><i>Read</i><i class="on">Write</i></span></div>
               <div class="lim"><span>Drive</span><span class="rw"><i class="on">Read</i><i>Write</i></span></div>
               <div class="lim lim--auto"><span>Autonomy</span><span class="rw"><i>Careful</i><i class="on">Balanced</i><i>Bold</i></span></div>
             </div>
-            <div class="pause"><span class="pause__dot"></span>Pause all employees — instantly</div>
+            <div class="pause"><span class="pause__dot"></span>Pause all employees at once</div>
           </article>
           <article class="card card--log spot">
             <p class="mono tiny acc">ACTIVITY</p>
-            <h3>Every step, on the record.</h3>
+            <h3>A log of every action</h3>
             <div class="log mono" id="log"></div>
           </article>
         </div>
@@ -293,8 +302,8 @@
     <section class="roles" id="roles">
       <div class="wrap">
         <div class="sechead">
-          <p class="eyebrow">06 — Roles</p>
-          <h2 class="h2 split">Start with a proven role. <em class="serif">Or write your own.</em></h2>
+          <p class="eyebrow">06 · Roles</p>
+          <h2 class="h2 split">Ready-made roles, <em class="serif">or write your own</em></h2>
         </div>
         <div class="roles__grid">
           <article class="role spot rv">
@@ -320,8 +329,8 @@
     <section class="pricing" id="pricing">
       <div class="wrap">
         <div class="sechead center">
-          <p class="eyebrow">07 — Pricing</p>
-          <h2 class="h2 split">Cheaper than a temp. <em class="serif">Works every day.</em></h2>
+          <p class="eyebrow">07 · Pricing</p>
+          <h2 class="h2 split">Syph pricing <em class="serif">in euros, billed monthly</em></h2>
         </div>
         <div class="plans">
           <article class="plan spot rv">
@@ -347,7 +356,7 @@
               <li>Up to 5 AI employees</li>
               <li>Everything in Solo</li>
               <li>Odoo CRM, WhatsApp &amp; Telegram</li>
-              <li>Digest — docs, PDFs &amp; audio into memory</li>
+              <li>Digest: add docs, PDFs &amp; audio to memory</li>
               <li>On-brand slide decks</li>
               <li>Hourly schedules</li>
             </ul>
@@ -374,17 +383,17 @@
     <section class="faq" id="faq">
       <div class="wrap faq__grid">
         <div>
-          <p class="eyebrow">08 — FAQ</p>
-          <h2 class="h2 split">Questions, <em class="serif">answered.</em></h2>
+          <p class="eyebrow">08 · FAQ</p>
+          <h2 class="h2 split">Frequently asked <em class="serif">questions</em></h2>
           <p class="dim faq__side">Something else? <button class="link-btn acc" data-sales>Talk to sales →</button></p>
         </div>
         <div class="faq__list">
-          <details><summary>What exactly is an “AI employee”?</summary><p>A persistent agent with a name, a role, a mission and access to the tools you choose. It wakes up on its schedule, reads what's new, does the work, and keeps a memory of your preferences — like “never negotiate below €90k”.</p></details>
-          <details><summary>Can it do things without my permission?</summary><p>Only what you allow. You choose read or write access per tool and an autonomy level per employee. Actions that leave your workspace — like sending an email — wait for your approval in Needs you. You can pause one employee, or all of them, at any time.</p></details>
-          <details><summary>Which tools does Syph connect to?</summary><p>Gmail, Google Calendar, Drive, Docs and Sheets, Odoo CRM, WhatsApp, Telegram, web research and on-brand slide decks — with more on the way. Business plans can add custom integrations.</p></details>
-          <details><summary>Do I need to be technical?</summary><p>No. You connect tools by signing in, and you brief employees in plain language — the same way you'd brief a new hire.</p></details>
+          <details><summary>What exactly is an “AI employee”?</summary><p>A persistent agent with a name, a role, a mission and access to the tools you choose. It wakes up on its schedule, reads what's new, does the work, and remembers your preferences, for example “never negotiate below €90k”.</p></details>
+          <details><summary>Can it do things without my permission?</summary><p>Only what you allow. You choose read or write access per tool and an autonomy level per employee. Actions that leave your workspace, such as sending an email, wait for your approval in Needs you. You can pause one employee, or all of them, at any time.</p></details>
+          <details><summary>Which tools does Syph connect to?</summary><p>Gmail, Google Calendar, Drive, Docs and Sheets, Odoo CRM, WhatsApp, Telegram, web research and on-brand slide decks, with more on the way. Business plans can add custom integrations.</p></details>
+          <details><summary>Do I need to be technical?</summary><p>No. You connect tools by signing in, and you brief employees in plain language, the same way you'd brief a new hire.</p></details>
           <details><summary>Is there a mobile app?</summary><p>Yes. Syph runs on the web and on iPhone, so you can chat with your team and approve actions from anywhere.</p></details>
-          <details><summary>How does billing work?</summary><p>Solo and Team are monthly subscriptions paid by card. Business is tailored to your team — talk to sales and we'll size it with you.</p></details>
+          <details><summary>How does billing work?</summary><p>Solo and Team are monthly subscriptions paid by card. Business is tailored to your team. Talk to sales and we'll work out the right size with you.</p></details>
         </div>
       </div>
     </section>
@@ -394,9 +403,9 @@
       <div class="final__rings" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="wrap final__inner">
         <span class="mark mark--xl" aria-hidden="true"><i class="mark__arc"></i><i class="mark__node"></i></span>
-        <h2 class="final__title split">Your first AI employee <em class="serif">starts tomorrow at 8:00.</em></h2>
+        <h2 class="final__title split">Set up your first AI employee <em class="serif">today, and it starts work tomorrow morning.</em></h2>
         <div class="hero__ctas center">
-          <a class="btn btn--primary btn--lg" data-checkout="solo" href="#pricing" data-magnetic><span>Get started — €49/mo</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--primary btn--lg" data-checkout="solo" href="#pricing" data-magnetic><span>Get started for €49/mo</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <button class="btn btn--ghost btn--lg" data-sales data-magnetic><span>Talk to sales</span></button>
         </div>
       </div>
@@ -408,7 +417,7 @@
     <div class="wrap foot__grid">
       <div>
         <a href="/" class="brand"><span class="mark mark--sm"><i class="mark__arc"></i><i class="mark__node"></i></span><span class="brand__word">SYPH</span></a>
-        <p class="dim foot__tag">AI employees for small business.<br>Your tools. Your context. Your AI team.</p>
+        <p class="dim foot__tag">AI employees for small businesses, working in the tools you already use.</p>
       </div>
       <div><p class="mono tiny dim">PRODUCT</p><a href="#top">Film</a><a href="#how">How it works</a><a href="#product">Features</a><a href="#pricing">Pricing</a></div>
       <div><p class="mono tiny dim">COMPANY</p><a href="agency.html">Syph Agency</a><a href="agentic-ai.html">Agentic AI services</a><button class="link-btn" data-sales>Talk to sales</button></div>
@@ -429,7 +438,7 @@
         <p class="hide"><label>Leave empty <input name="bot-field"></label></p>
         <p class="eyebrow">Talk to sales</p>
         <h3 id="modalTitle">Let's size your AI workforce.</h3>
-        <p class="dim">Tell us a little about your business — we'll reply within one business day.</p>
+        <p class="dim">Tell us a little about your business and we'll reply within one business day.</p>
         <div class="mform__grid">
           <label><span>Name</span><input name="name" required autocomplete="name"></label>
           <label><span>Work email</span><input name="email" type="email" required autocomplete="email"></label>
@@ -447,7 +456,7 @@
         <p class="hide"><label>Leave empty <input name="bot-field"></label></p>
         <p class="eyebrow" id="waitPlan">Solo</p>
         <h3>Checkout opens in a few days.</h3>
-        <p class="dim">Leave your email and you'll be first in — at launch pricing.</p>
+        <p class="dim">Leave your email and we'll let you in first, at launch pricing.</p>
         <div class="mform__grid">
           <label class="full"><span>Work email</span><input name="email" type="email" required autocomplete="email"></label>
         </div>
@@ -456,7 +465,7 @@
       </form>
       <div class="mdone" id="mdone" hidden>
         <span class="mark mark--xl"><i class="mark__arc"></i><i class="mark__node"></i></span>
-        <h3>Got it — thank you.</h3>
+        <h3>Got it, thank you.</h3>
         <p class="dim">We'll be in touch shortly.</p>
       </div>
     </div>
