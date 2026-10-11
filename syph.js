@@ -246,7 +246,7 @@
   // ------------------------------------------------------------------ day timeline
   const TASKS = [
     [8.0, "mail", "#FF8A80", "Sent your morning brief", "3 decisions · 2 meetings · 1 risk"],
-    [8.4, "mail", "#FF8A80", "Triaged 38 new emails", "6 need a reply — drafts ready"],
+    [8.4, "mail", "#FF8A80", "Triaged 38 new emails", "6 need a reply, drafts ready"],
     [9.1, "crm", "#C6A8FF", "Qualified 6 new leads", "Scored & logged in Odoo CRM"],
     [10.5, "doc", "#9DB8FF", "Wrote 4 follow-ups", "In your voice, from your context"],
     [12.2, "cal", "#9DB8FF", "Moved Thursday's call", "No conflicts · invites updated"],
@@ -354,7 +354,7 @@
     const hl = $(".seg__hl", tpl), opts = $$("span:not(.seg__hl)", tpl);
     tools.innerHTML = ["mail", "cal", "crm", "web", "wa"].map(k => { const t = toolBy(k); return `<span>${svg(k, t[2])}${t[1]}</span>`; }).join("");
     const chips = $$("span", tools);
-    const M = "Find qualified buyers, keep the pipeline honest, follow up — and only interrupt me for decisions.";
+    const M = "Find qualified buyers, keep the pipeline honest, follow up, and only interrupt me for decisions.";
     const type = async (el, text, cps, alive) => { el.classList.add("focus"); for (let i = 1; i <= text.length && alive(); i++) { el.innerHTML = text.slice(0, i) + '<span class="caret"></span>'; await wait(1000 / cps); } el.innerHTML = text; el.classList.remove("focus"); };
     return async alive => {
       name.textContent = "Untitled"; av.textContent = "?"; mis.innerHTML = ""; wake.textContent = "Only when asked"; btn.classList.remove("done"); btn.firstElementChild.textContent = "Hire Atlas";

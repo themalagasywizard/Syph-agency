@@ -6,7 +6,7 @@ const distDir = path.join(projectRoot, "dist");
 
 // Everything the static site serves. index.html is the Syph product landing;
 // agency.html / agentic-ai.html are the Syph Agency pages.
-const FILES = ["index.html", "syph.css", "syph.js", "agency.html", "agentic-ai.html", "styles.css", "script.js"];
+const FILES = ["index.html", "syph.css", "syph.js", "agency.html", "agentic-ai.html", "styles.css", "script.js", "robots.txt", "sitemap.xml", "llms.txt"];
 
 async function main() {
   await rm(distDir, { recursive: true, force: true });

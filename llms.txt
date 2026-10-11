@@ -1,0 +1,15 @@
+# Syph
+
+> Syph is an AI employee platform for small businesses. AI employees connect to the apps a business already uses, work on a schedule, and ask the owner to approve anything that sends, spends or commits.
+
+- Integrations: Gmail, Google Calendar, Drive, Docs, Sheets, Odoo CRM, WhatsApp, Telegram, web research, on-brand slide decks. Business plans can add custom integrations.
+- Roles: Sales, Marketing, Executive assistant, or a custom role with its own mission, personality and schedule.
+- Controls: read or write access per tool, autonomy levels (Careful, Balanced, Bold), approvals in "Needs you", pause one or all employees, activity log.
+- Apps: web and iPhone.
+- Pricing (EUR, monthly): Solo €49 (1 employee), Team €149 (up to 5), Business from €399 (unlimited).
+
+## Links
+- [Home](https://syph-software.com/)
+- [Pricing](https://syph-software.com/#pricing)
+- [FAQ](https://syph-software.com/#faq)
+- [Syph Agency](https://syph-software.com/agency)
